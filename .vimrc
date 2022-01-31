@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'troydm/zoomwintab.vim'  
 Plug 'haya14busa/incsearch.vim'
 "Plug 'Valloric/MatchTagAlways'
@@ -120,6 +121,7 @@ colorscheme onehalfdark
 hi Normal ctermbg=NONE guibg=NONE
 hi NonText ctermbg=NONE guibg=NONE
 hi EndOfBuffer ctermfg=NONE guibg=NONE
+"Configuracion para navegar entre los bufers abiertos
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -203,6 +205,7 @@ set shortmess+=c
 
 let g:mucomplete#enable_auto_at_startup = 1
 let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t' 
 let g:airline#extensions#tabline#show_buffers = 1 " Mostrar sólo el nombre del archivo
 let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtree']
@@ -314,6 +317,8 @@ let g:multi_cursor_use_default_mapping=0
  let g:multi_cursor_skip_key            = '<C-M>'
 let g:pipe2eval_map_key = '<Leader>mg'
 hi CursorLine guifg=NONE guibg=#2d3c45 ctermbg=237 gui=NONE term=NONE cterm=NONE
+
+"Configuracion para la base de datos
 "" operator mapping
 func! DBExe(...)
 	if !a:0
