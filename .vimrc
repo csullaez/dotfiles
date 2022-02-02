@@ -1,4 +1,3 @@
-
 let g:mapleader = " "
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -58,12 +57,6 @@ Plug 'kdheepak/tabline.nvim'
 call plug#end()
 
 
-
-
-
-"NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
 
@@ -112,11 +105,7 @@ set t_Co=256
  if (has("termguicolors"))
    set termguicolors     " enable true colors support
  endif
-"colorscheme codecolorscheme onedarkdark
-"colorscheme codedark
 colorscheme onehalfdark 
-"colorscheme dracula 
-"navigation
 "============transparency=========================
 hi Normal ctermbg=NONE guibg=NONE
 hi NonText ctermbg=NONE guibg=NONE
