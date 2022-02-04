@@ -1,3 +1,4 @@
+
 let g:mapleader = " "
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -30,7 +31,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/vim-gitbranch' 
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'kristijanhusak/vim-packager'
+"Plug 'kristijanhusak/vim-packager'
 Plug 'Sirver/ultisnips'
 "Complementos para Git y GitLens para vim
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -47,19 +48,25 @@ Plug 'alvan/vim-closetag' "React o HTML complemento para etiquetas
 Plug 'tpope/vim-surround'
 
 Plug 'yggdroot/indentline' "Para indentaciones
-Plug 'easymotion/vim-easymotion' "Para indentaciones
+Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
 
 "It is similar to Eslint
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 
 "Plug 'lukelbd/vim-tabline'
 Plug 'kdheepak/tabline.nvim'
 call plug#end()
 
 
+
+
+
+"NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
-
+set ma
 set encoding=UTF-8
 set title
 set nocompatible
@@ -105,11 +112,17 @@ set t_Co=256
  if (has("termguicolors"))
    set termguicolors     " enable true colors support
  endif
+"colorscheme codecolorscheme onedarkdark
+"colorscheme codedark
 colorscheme onehalfdark 
+"colorscheme dracula 
+"navigation
 "============transparency=========================
 hi Normal ctermbg=NONE guibg=NONE
 hi NonText ctermbg=NONE guibg=NONE
 hi EndOfBuffer ctermfg=NONE guibg=NONE
+"Configuracion para explorar
+nnoremap <F3> :CocCommand explorer<CR>
 "Configuracion para navegar entre los bufers abiertos
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -148,13 +161,13 @@ nnoremap <Leader>" :sp<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bt :BTags<CR>
 nnoremap <Leader>bh :History<CR>
-nnoremap <Leader>bs :Files<CR>i
+nnoremap <Leader>bs :Files<CR>
 nnoremap <leader>f :ZoomWinTabToggle<CR>
 map <leader>t :tabnew<CR>
 " Clear search highlight
 nnoremap <Leader><space> :noh<CR>
 " Nerdtree
-nnoremap <F3> :NERDTreeToggle<CR>
+"nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F4> :NERDTreeFind<CR>
 "para la indentacion
 "==========CONTROL===MAPPINGS====================================
@@ -221,6 +234,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-tsserver',
+  \ 'coc-explorer',
   \ ]
 
 
@@ -233,12 +247,12 @@ nmap <silent> gr <Plug>(coc-references)
 
 
 " Refactoring mappings
-nmap CR <Plug>(coc-rename)
-"nmap CF  <Plug>(coc-format)
+nmap <silent> CR <Plug>(coc-rename)
+nmap <silent> CF <Plug>(coc-format)
 "xmap CF  <Plug>(coc-format-selected)
 "nmap CA  <Plug>(coc-codeaction)
 "xmap CA  <Plug>(coc-codeaction-selected)
-"nmap CX  <Plug>(coc-fix-current)
+nmap <leader>fc  <Plug>(coc-fix-current)
 
 
 let g:lightline = {
@@ -361,8 +375,8 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 " Show hidden Files
 let NERDTreeShowHidden=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:NERDTreeDirArrowExpandable = ' '
-let g:NERDTreeDirArrowCollapsible = ' '
+"let g:NERDTreeDirArrowExpandable = ' '
+"let g:NERDTreeDirArrowCollapsible = ' '
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '

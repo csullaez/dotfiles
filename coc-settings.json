@@ -1,0 +1,23 @@
+{
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true, 
+  "explorer.git.icon.status.added": "✚",
+  "explorer.git.icon.status.deleted": "✖",
+  "explorer.git.icon.status.renamed": "➜",
+  "explorer.git.icon.status.unmerged": "≠",
+  "explorer.git.icon.status.untracked": "?",
+  "explorer.git.icon.status.modified": "✹",
+  "explorer.git.icon.status.ignored": "☒",
+  "explorer.git.icon.status.mixed": "*",
+  // valor que hace que se habra y cierre el coc-explorer
+  //"explorer.quitOnOpen": true,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.file.column.clip.copy": "",
+  "explorer.file.column.clip.cut": "",
+  "explorer.width": 35,
+  "explorer.keyMappings.global": {
+  " yp": "copyFilepath",
+   "yn": "copyFilename",
+   "s": "toggleSelection",
+  },
+}
