@@ -6,7 +6,7 @@ let g:mapleader = " "
 call plug#begin('~/.vim/plugged')
 " Any valid git URL is allowed
 " Multiple Plug commands can be written in a single line using | separators
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -23,9 +23,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 "Temas para vim
-Plug 'tomasiser/vim-code-dark'
+"Plug 'tomasiser/vim-code-dark'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'dracula/vim', { 'as': 'dracula' }
 
 
 Plug 'itchyny/vim-gitbranch' 
@@ -34,13 +34,13 @@ Plug 'tpope/vim-fugitive'
 "Plug 'kristijanhusak/vim-packager'
 Plug 'Sirver/ultisnips'
 "Complementos para Git y GitLens para vim
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
 "Complements para carpetas e iconos
-Plug 'Shougo/defx.nvim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'Shougo/defx.nvim'
+"Plug 'ryanoasis/vim-devicons'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "Complements for typing
 Plug 'jiangmiao/auto-pairs' "Complemento para Cerrar parentesis
@@ -54,7 +54,7 @@ Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
 "Plug 'dense-analysis/ale'
 
 "Plug 'lukelbd/vim-tabline'
-Plug 'kdheepak/tabline.nvim'
+"Plug 'kdheepak/tabline.nvim'
 call plug#end()
 
 
@@ -168,7 +168,7 @@ map <leader>t :tabnew<CR>
 nnoremap <Leader><space> :noh<CR>
 " Nerdtree
 "nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <F4> :NERDTreeFind<CR>
+"nnoremap <F4> :NERDTreeFind<CR>
 "para la indentacion
 "==========CONTROL===MAPPINGS====================================
 " Map save to Ctrl + S
@@ -230,11 +230,13 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-sql',
   \ 'coc-restclient',
-  \ 'coc-tabnine',
+  "\ 'coc-tabnine',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-tsserver',
   \ 'coc-explorer',
+  \ 'coc-vetur',
+  \ 'coc-html',
   \ ]
 
 
