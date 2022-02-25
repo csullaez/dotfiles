@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/carloss/propios/proyecto-base-backend/src/common/params'
+let g:netrw_dirhist_2='/home/carloss/propios/proyecto-base-backend/.git'
+let g:netrw_dirhist_1='/home/carloss/propios/proyecto-base-backend/.git/refs'
+let g:netrw_dirhist_0='/home/carloss/propios/proyecto-base-backend/.git'
+let g:netrw_dirhist_9='/home/carloss/propios/proyecto-base-backend/.git/objects'
+let g:netrw_dirhist_8='/home/carloss/propios/proyecto-base-backend/.git'
+let g:netrw_dirhist_7='/home/carloss/propios/proyecto-base-backend/.git/hooks'
+let g:netrw_dirhist_6='/home/carloss/propios/proyecto-base-backend/.git'
+let g:netrw_dirhist_5='/home/carloss/propios/proyecto-base-backend/.git/branches'
+let g:netrw_dirhist_4='/home/carloss/propios/proyecto-base-backend/.git'
