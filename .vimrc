@@ -7,11 +7,10 @@ call plug#begin('~/.vim/plugged')
 " Any valid git URL is allowed
 " Multiple Plug commands can be written in a single line using | separators
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plugin outside ~/.vim/plugged with post-update hook
+" Plugin outside ~/.vim/plugged
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Initialize plugin system
-Plug 'tpope/vim-dadbod'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -23,15 +22,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 "Temas para vim
-"Plug 'tomasiser/vim-code-dark'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'tomasiser/vim-code-dark'
+"Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'rakr/vim-one' 
 "Plug 'dracula/vim', { 'as': 'dracula' }
 
 
 Plug 'itchyny/vim-gitbranch' 
-Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-"Plug 'kristijanhusak/vim-packager'
 Plug 'Sirver/ultisnips'
 "Complementos para Git y GitLens para vim
 "Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -55,13 +53,16 @@ Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
 
 "Plug 'lukelbd/vim-tabline'
 "Plug 'kdheepak/tabline.nvim'
+" Data Base
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-packager'
+Plug 'kristijanhusak/vim-dadbod-ui'
 call plug#end()
 
 
 
 
 
-"NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
@@ -113,14 +114,16 @@ set t_Co=256
    set termguicolors     " enable true colors support
  endif
 "colorscheme codecolorscheme onedarkdark
-"colorscheme codedark
-colorscheme onehalfdark 
+colorscheme codedark
+"colorscheme onehalfdark 
+"colorscheme one
 "colorscheme dracula 
 "navigation
 "============transparency=========================
 hi Normal ctermbg=NONE guibg=NONE
 hi NonText ctermbg=NONE guibg=NONE
 hi EndOfBuffer ctermfg=NONE guibg=NONE
+map <C-\> <Plug>NERDCommenterInvert
 "Configuracion para explorar
 nnoremap <F3> :CocCommand explorer<CR>
 "Configuracion para navegar entre los bufers abiertos
@@ -148,7 +151,7 @@ vnoremap <leader>P "+P
 " Moverse al buffer siguiente con <líder> + l
 map <leader>l :bnext<CR>
 " Moverse al buffer anterior con <líder> + j
-nnoremap <leader>h :bprevious<CR>
+nnoremap <leader>h :bprevious<CR><CR>
 " Cerrar el buffer actual con <líder> + q
 nnoremap <leader>q :bdelete<CR>
 nnoremap <leader>o :new<CR>
@@ -175,8 +178,8 @@ nnoremap <Leader><space> :noh<CR>
 map <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>
 " Indenting in visual mode
-xnoremap <s-tab> <gv
-xnoremap <tab> >gv
+"xnoremap <s-tab> <gv
+"xnoremap <tab> >gv
 " // The switch of the Source Explorer 
 "nmap <F3> :SrcExplToggle<CR> 
 " Maps for indentation in normal mode
@@ -194,7 +197,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "Para Buscar con AG
-map <leader>ag :Ag<CR>
+map <S-f> :Ag<CR>
 "Para ir a una palabra con easymotion
 nmap <Leader>s <Plug>(easymotion-s2)
 
@@ -226,11 +229,10 @@ let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtr
   nmap <leader>+ <Plug>AirlineSelectNextTab
 
 let g:coc_global_extensions = [
+  "\ 'coc-tabnine',
   \ 'coc-snippets',
   \ 'coc-python',
   \ 'coc-sql',
-  \ 'coc-restclient',
-  "\ 'coc-tabnine',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-tsserver',
@@ -256,17 +258,7 @@ nmap <silent> CF <Plug>(coc-format)
 "xmap CA  <Plug>(coc-codeaction-selected)
 nmap <leader>fc  <Plug>(coc-fix-current)
 
-
-let g:lightline = {
-      \ 'colorscheme': 'onehalfdark',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
+let g:airline_theme='powerlineish'
 
 highlight GitGutterAdd    guibg=#1b1b1b  guifg=#009900 ctermfg=2 cterm=bold 
 highlight GitGutterChange guibg=#1b1b1b guifg=#bbbb00 ctermfg=3 cterm=bold
@@ -282,7 +274,23 @@ let g:blamer_relative_time = 1
 let g:gitp_blame_format = '     %{account} * %{ago}'
 
 "highlight link GitGutterChangeLine DiffText
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
 
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -294,8 +302,40 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" kite autocomplete
+let g:kite_auto_complete=0
+"let g:kite_supported_languages = ['javascript', 'python']
+let g:kite_supported_languages = ['*']
+
+"autocmd FileType python let b:coc_suggest_disable = 1
+"autocmd FileType javascript let b:coc_suggest_disable = 1
+
+
+
+
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+"if &filetype == "javascript" || &filetype == "python"
+  "inoremap <c-space> <C-x><C-u>
+"else
+  inoremap <silent><expr> <c-space> coc#refresh()
+"endif
+
+
+
+
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -304,22 +344,24 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 "let g:airline_powerline_fonts = 1
 " Moverse al buffer siguiente con <líder> + l
- map <leader>l :bnext<CR>
+ "map <leader>l :bnext<CR>
+ map <TAB> :bnext<CR>
 " " Moverse al buffer anterior con <líder> + j
- nnoremap <leader>h :bprevious<CR>
+ nnoremap <S-TAB> :bprevious<CR>
 " " Cerrar el buffer actual con <líder> + q
  nnoremap <leader>q :bdelete<CR>
  nnoremap <leader>o :new<CR>
  nnoremap <leader>vo :vnew<CR>
  " Guardar con leader en normal mode
  "nnoremap <Leader>s :w<CR>
+ " B
 " 
 let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
- let g:multi_cursor_quit_key='<Esc>'
- let g:multi_cursor_next_key            = '<C-m>'
- let g:multi_cursor_skip_key            = '<C-M>'
+let g:multi_cursor_quit_key='<Esc>'
+let g:multi_cursor_next_key            = '<C-m>'
+let g:multi_cursor_skip_key            = '<C-M>'
 let g:pipe2eval_map_key = '<Leader>mg'
 hi CursorLine guifg=NONE guibg=#2d3c45 ctermbg=237 gui=NONE term=NONE cterm=NONE
 
@@ -356,6 +398,87 @@ xmap <leader>ps  <Plug>(DBExe)
 nmap <leader>ps  <Plug>(DBExe)
 vmap <leader>ps <Plug>(DBExe)
 nmap <leader>pl <Plug>(DBExeLine)
+
+" Conexion a base de datos
+
+let g:dbs = {
+\  'dev': 'postgres://postgres:postgres@localhost:5432/seprec'
+\ }
+
+
+let g:db_ui_auto_execute_table_helpers = 1
+
+let g:db_ui_icons = {
+      \ 'expanded': {
+      \    'db': '▾ ',
+      \    'buffers': '▾ ',
+      \   'saved_queries': '▾ ',
+      \   'schemas': '▾ ',
+      \   'schema': '▾ פּ',
+      \   'tables': '▾ 藺',
+      \   'table': '▾ ',
+      \ },
+      \ 'collapsed': {
+      \   'db': '▸ ',
+      \   'buffers': '▸ ',
+      \   'saved_queries': '▸ ',
+      \   'schemas': '▸ ',
+      \   'schema': '▸ פּ',
+      \   'tables': '▸ 藺',
+      \   'table': '▸ ',
+      \ },
+      \ 'saved_query': '',
+      \ 'new_query': '璘',
+      \ 'tables': '離',
+      \ 'buffers': '﬘',
+      \ 'add_connection': '',
+      \ 'connection_ok': '✓',
+      \ 'connection_error': '✕',
+      \ }
+
+
+let g:db_ui_winwidth = 40
+
+let g:db_ui_default_query = 'select * from "{table}" limit 10'
+
+let g:db_ui_save_location = '~/Consultas/sive/prueba.sql'
+
+" prueba
+" let g:db_ui_disable_mappings = 1
+
+" autocmd FileType dbui nmap <buffer> S <Plug>(DBUI_SelectLineVsplit)
+" autocmd FileType dbui nmap <buffer> d <Plug>(DBUI_DeleteLine)
+" autocmd FileType dbui nmap <buffer> o <Plug>(DBUI_SelectLine)
+" autocmd FileType dbui nmap <buffer> r <Plug>(DBUI_Redraw)
+" autocmd FileType dbui nmap <buffer> a <Plug>(DBUI_AddConnection)
+" autocmd FileType dbui nmap <buffer> H <Plug>(DBUI_ToggleDetails)
+
+" autocmd FileType dbui nmap <buffer> v <Plug>(DBUI_SaveQuery)
+" autocmd FileType dbui nmap <buffer> e <Plug>(DBUI_EditBindParameters)
+
+" autocmd FileType dbui nmap <buffer> v <Plug>(DBUI_JumpToForeignKey)
+"
+" ACTIVATE :DBUI
+"
+let g:db_ui_table_helpers = {
+      \ 'postgresql': {
+      \    'Count': 'select count(*) from "{table}"',
+      \    'List': 'select * from "{table}" order by id desc limit 20'
+      \   }
+      \ }
+
+
+" let g:DBUI_ExecuteQuery="<C-s>"
+
+" Correr las consultas seleccionando el query y luego CC
+vmap CC  <Plug>(DBUI_ExecuteQuery)
+" Guardar la consulta query
+vmap SS  <Plug>(DBUI_SaveQuery)
+
+" Desactivando el guardado y ejecucion automatico
+let g:db_ui_execute_on_save = 0
+
+
 
 
 
