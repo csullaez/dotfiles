@@ -57,15 +57,22 @@ Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-packager'
 Plug 'kristijanhusak/vim-dadbod-ui'
+
+"Complement for Scroll
+"Plug 'yuttie/comfortable-motion.vim'
+Plug 'psliwka/vim-smoothie'
+" PHP support
+"Plug 'shawncplus/phpcomplete.visyntaxm'
+
+" Para ver funciones
+
 call plug#end()
 
 
 
 
 
-
-
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
 set ma
 set encoding=UTF-8
@@ -75,10 +82,12 @@ set number
 set relativenumber                                                              "Show numbers relative to current line
 set history=500                                                                 "Store lots of :cmdline history
 "set fileencoding=utf-8 
-set mouse=a
+set mouse=a "Use mouse all
+set laststatus=2
 set nowrap
+"setlocal formatoptions=wat
 set cursorline
-set colorcolumn=120
+set colorcolumn=150
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -88,7 +97,11 @@ set hidden
 set ignorecase
 set smartcase
 set spelllang=en,es
-set showmatch
+set foldmethod=syntax
+"set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+"set showmatch
 set splitbelow
 set splitright
 syntax on
@@ -118,19 +131,20 @@ colorscheme codedark
 "colorscheme onehalfdark 
 "colorscheme one
 "colorscheme dracula 
-"navigation
-"============transparency=========================
-hi Normal ctermbg=NONE guibg=NONE
-hi NonText ctermbg=NONE guibg=NONE
-hi EndOfBuffer ctermfg=NONE guibg=NONE
-map <C-\> <Plug>NERDCommenterInvert
-"Configuracion para explorar
-nnoremap <F3> :CocCommand explorer<CR>
-"Configuracion para navegar entre los bufers abiertos
+"navigation entre Buffers abiertos
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+"============transparency=========================
+hi Normal ctermbg=NONE guibg=NONE
+hi NonText ctermbg=NONE guibg=NONE
+hi EndOfBuffer ctermfg=NONE guibg=NONE
+"Para comentar con CTRL+\
+map <C-\> <Plug>NERDCommenterInvert
+"Configuracion para explorar
+nnoremap <F3> :CocCommand explorer<CR>
+"Configuracion para navegar entre los bufers abiertos
 
 vnoremap <c-c> "+y<CR>
 nnoremap <c-v> "+p<CR>
@@ -149,9 +163,9 @@ vnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 " Moverse al buffer siguiente con <líder> + l
-map <leader>l :bnext<CR>
+"map <leader>l :bnext<CR>
 " Moverse al buffer anterior con <líder> + j
-nnoremap <leader>h :bprevious<CR><CR>
+"nnoremap <leader>h :bprevious<CR><CR>
 " Cerrar el buffer actual con <líder> + q
 nnoremap <leader>q :bdelete<CR>
 nnoremap <leader>o :new<CR>
@@ -183,8 +197,8 @@ imap <c-s> <Esc>:w<CR>
 " // The switch of the Source Explorer 
 "nmap <F3> :SrcExplToggle<CR> 
 " Maps for indentation in normal mode
-nnoremap <tab> >>
-nnoremap <s-tab> <<
+inoremap <tab> >>
+inoremap <s-tab> <<
 " Maps requeridos
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -202,10 +216,10 @@ map <S-f> :Ag<CR>
 nmap <Leader>s <Plug>(easymotion-s2)
 
 
-set completeopt+=preview
-set completeopt+=menuone
-set completeopt+=noinsert
-set shortmess+=c
+"set completeopt+=preview
+"set completeopt+=menuone
+"set completeopt+=noinsert
+"set shortmess+=c
 
 
 let g:mucomplete#enable_auto_at_startup = 1
@@ -214,24 +228,17 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t' 
 let g:airline#extensions#tabline#show_buffers = 1 " Mostrar sólo el nombre del archivo
 let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtree']
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
-  "let g:airline#extensions#tabline#buffer_idx_mode = 1
-  "nmap <leader>1 <Plug>AirlineSelectTab1
-  "nmap <leader>2 <Plug>AirlineSelectTab2
-  "nmap <leader>3 <Plug>AirlineSelectTab3
-  "nmap <leader>4 <Plug>AirlineSelectTab4
-  "nmap <leader>5 <Plug>AirlineSelectTab5
-  "nmap <leader>6 <Plug>AirlineSelectTab6
-  "nmap <leader>7 <Plug>AirlineSelectTab7
-  "nmap <leader>8 <Plug>AirlineSelectTab8
-  "nmap <leader>9 <Plug>AirlineSelectTab9
-  nmap <leader>- <Plug>AirlineSelectPrevTab
-  nmap <leader>+ <Plug>AirlineSelectNextTab
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
+
 
 let g:coc_global_extensions = [
   "\ 'coc-tabnine',
   \ 'coc-snippets',
-  \ 'coc-python',
+  "\ 'coc-python',
   \ 'coc-sql',
   \ 'coc-eslint',
   \ 'coc-prettier',
@@ -239,6 +246,7 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-vetur',
   \ 'coc-html',
+  \ 'coc-phpls',
   \ ]
 
 
@@ -252,16 +260,37 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Refactoring mappings
 nmap <silent> CR <Plug>(coc-rename)
-nmap <silent> CF <Plug>(coc-format)
+nmap <silent> CF <Plug>(coc-format-selected)
+xmap <silent> CF <Plug>(coc-format-selected)
 "xmap CF  <Plug>(coc-format-selected)
 "nmap CA  <Plug>(coc-codeaction)
 "xmap CA  <Plug>(coc-codeaction-selected)
 nmap <leader>fc  <Plug>(coc-fix-current)
 
-let g:airline_theme='powerlineish'
+"let g:airline_theme='hybridline'
+let g:airline_theme='base16_spacemacs'
+"let g:airline_theme='fruit'
+let g:airline_powerline_fonts             = 1
+let g:airline#extensions#tabline#enabled  = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_section_z                   = airline#section#create([
+			\ '%1p%% ',
+			\ 'Ξ%l%',
+			\ '\⍿%c'])
+"call airline#parts#define_accent('mode', 'black')
 
-highlight GitGutterAdd    guibg=#1b1b1b  guifg=#009900 ctermfg=2 cterm=bold 
-highlight GitGutterChange guibg=#1b1b1b guifg=#bbbb00 ctermfg=3 cterm=bold
+" --- Git tools ---
+" Gitgutter settings
+let g:gitgutter_max_signs             = 5000
+let g:gitgutter_sign_added            = '+'
+let g:gitgutter_sign_modified         = '»'
+let g:gitgutter_sign_removed          = '_'
+let g:gitgutter_sign_modified_removed = '»╌'
+let g:gitgutter_map_keys              = 0
+let g:gitgutter_diff_args             = '--ignore-space-at-eol'
+
+highlight GitGutterAdd    guibg=#1b1b1b guifg=#009900 ctermfg=2 cterm=bold 
+highlight GitGutterChange guibg=#1b1b1b guifg=#064699 ctermfg=3 cterm=bold
 highlight GitGutterDelete guibg=#1b1b1b guifg=#ff2222 ctermfg=1 cterm=bold
 
 highlight GitGutterAddLine    guibg=#004b6e
@@ -272,25 +301,6 @@ let g:blamer_enabled = 1
 let g:blamer_delay = 500
 let g:blamer_relative_time = 1
 let g:gitp_blame_format = '     %{account} * %{ago}'
-
-"highlight link GitGutterChangeLine DiffText
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -303,40 +313,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
-
-" kite autocomplete
-let g:kite_auto_complete=0
-"let g:kite_supported_languages = ['javascript', 'python']
-let g:kite_supported_languages = ['*']
-
-"autocmd FileType python let b:coc_suggest_disable = 1
-"autocmd FileType javascript let b:coc_suggest_disable = 1
-
-
-
-
-"inoremap <silent><expr> <TAB>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ <SID>check_back_space() ? "\<TAB>" :
-      "\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-"function! s:check_back_space() abort
-  "let col = col('.') - 1
-  "return !col || getline('.')[col - 1]  =~# '\s'
-"endfunction
-" Use <c-space> to trigger completion.
-"if &filetype == "javascript" || &filetype == "python"
-  "inoremap <c-space> <C-x><C-u>
-"else
-  inoremap <silent><expr> <c-space> coc#refresh()
-"endif
-
-
-
-
-
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -345,13 +321,13 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "let g:airline_powerline_fonts = 1
 " Moverse al buffer siguiente con <líder> + l
  "map <leader>l :bnext<CR>
- map <TAB> :bnext<CR>
-" " Moverse al buffer anterior con <líder> + j
+ nnoremap <TAB> :bnext<CR>
  nnoremap <S-TAB> :bprevious<CR>
 " " Cerrar el buffer actual con <líder> + q
- nnoremap <leader>q :bdelete<CR>
- nnoremap <leader>o :new<CR>
- nnoremap <leader>vo :vnew<CR>
+ "Para evitar que se cierre la ventana cuando se cierra el buffer
+ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+ nnoremap <leader>g :new<CR>
+ nnoremap <leader>n :vnew<CR>
  " Guardar con leader en normal mode
  "nnoremap <Leader>s :w<CR>
  " B
@@ -477,78 +453,6 @@ vmap SS  <Plug>(DBUI_SaveQuery)
 
 " Desactivando el guardado y ejecucion automatico
 let g:db_ui_execute_on_save = 0
-
-
-
-
-
-"ICONOS
-
-"Desactivar color de los iconos(Verde y blanco) por defecto
-"let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
-"let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
-
-"let g:NERDTreeDisableFileExtensionHighlight = 1
-"let g:NERDTreeDisableExactMatchHighlight = 1
-"let g:NERDTreeDisablePatternMatchHighlight = 1
-
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-
-"let g:NERDTreeSyntaxDisableDefaultExtensions = 1
-
-" Show hidden Files
-let NERDTreeShowHidden=1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:NERDTreeDirArrowExpandable = ' '
-"let g:NERDTreeDirArrowCollapsible = ' '
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:DevIconsEnableFolderExtensionPatternMatching = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:NERDTreeHighlightFoldersFullName = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ' '
-let g:DevIconsDefaultFolderOpenSymbol = ' '
-"let g:NERDTreeHighlightCursorline = 0
-" Size of Nerdtree-Window
-"let g:NERDTreeWinSize=150
-" " Filter VIM swap-files from tree
-"let NERDTreeIgnore = ['\.swp$', '.DS_Store', '.gitignore']
- "Enable open/close for folders/directories
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-
-" " Reset all default highlighting
-"let g:NERDTreeSyntaxDisableDefaultExtensions = 1
-
-
-hi NerdTreeDir ctermfg=141
-hi link NerdTreeOpenable NerdTreeDir 
-hi link NERDTreeFlags NerdTreeDir
-"hi NerdTreeCWD ctermfg=030
-"hi NerdTreeUp ctermfg=242
-"hi NerdTreeFile ctermfg=248
-
-
-let s:brown = "905532"
-let s:aqua =  "3AFFDB"
-let s:blue = "689FB6"
-let s:darkBlue = "44788E"
-let s:purple = "834F79"
-let s:lightPurple = "af87ff"
-let s:red = "AE403F"
-let s:beige = "F5C06F"
-let s:yellow = "F09F17"
-let s:orange = "D4843E"
-let s:darkOrange = "F16529"
-let s:pink = "CB6F6F"
-let s:salmon = "EE6E73"
-let s:green = "8FAA54"
-let s:lightGreen = "31B53E"
-let s:white = "FFFFFF"
-let s:rspec_red = 'FE405F'
-let s:git_orange = 'F54D27'
-
 
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
