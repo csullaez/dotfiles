@@ -1,3 +1,4 @@
+set clipboard=unnamed
 set ma
 set encoding=UTF-8
 set title

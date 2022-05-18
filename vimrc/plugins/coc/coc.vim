@@ -24,14 +24,39 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> CR <Plug>(coc-rename)
 nmap <silent> CF <Plug>(coc-format-selected)
 xmap <silent> CF <Plug>(coc-format-selected)
-" "xmap CF  <Plug>(coc-format-selected)
-" "nmap CA  <Plug>(coc-codeaction)
-" "xmap CA  <Plug>(coc-codeaction-selected)
 nmap <leader>fc  <Plug>(coc-fix-current)"
+
 
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-w> <Plug>(coc-range-select)
+xmap <silent> <C-w> <Plug>(coc-range-select)

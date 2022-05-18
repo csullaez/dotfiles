@@ -3,16 +3,16 @@ call plug#begin('~/.vim/plugged')
 " " Multiple Plug commands can be written in a single line using | separators
 " "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 " " Plugin outside ~/.vim/plugged
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " " Initialize plugin system
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'troydm/zoomwintab.vim'  
-" Plug 'haya14busa/incsearch.vim'
+Plug 'troydm/zoomwintab.vim'  
+Plug 'haya14busa/incsearch.vim'
 " "Plug 'Valloric/MatchTagAlways'
-" Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
 "
@@ -36,12 +36,12 @@ Plug 'APZelos/blamer.nvim'
 ""Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "Complements for typing
-"Plug 'jiangmiao/auto-pairs' "Complemento para Cerrar parentesis
-"Plug 'alvan/vim-closetag' "React o HTML complemento para etiquetas
-"Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs' "Complemento para Cerrar parentesis
+Plug 'alvan/vim-closetag' "React o HTML complemento para etiquetas
+Plug 'tpope/vim-surround'
 "
 "Plug 'yggdroot/indentline' "Para indentaciones
-"Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
+Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
 "
 ""It is similar to Eslint
 "Plug 'dense-analysis/ale'
@@ -65,4 +65,6 @@ call plug#end()
 
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim
+source ~/dotfiles/vimrc/plugins/fzf/fzf.vim
+source ~/dotfiles/vimrc/plugins/git/git.vim
 
