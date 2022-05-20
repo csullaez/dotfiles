@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " " Initialize plugin system
-" Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'troydm/zoomwintab.vim'  
@@ -51,20 +51,15 @@ Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
 "" Data Base
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-packager'
-Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'bandagriss/vim-dadbod-ui'
 
 "Complement for Scroll
 Plug 'yuttie/comfortable-motion.vim'
-"Plug 'psliwka/vim-smoothie'
-" PHP support
-" "Plug 'shawncplus/phpcomplete.visyntaxm'
-"
-" " Para ver funciones
-"
-call plug#end()
 
+call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim
 source ~/dotfiles/vimrc/plugins/fzf/fzf.vim
 source ~/dotfiles/vimrc/plugins/git/git.vim
+source ~/dotfiles/vimrc/plugins/database/db.vim
 
