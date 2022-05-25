@@ -1,11 +1,12 @@
 let g:coc_global_extensions = [
-    "\ 'coc-tabnine',
+  "\ 'coc-tabnine',
   \ 'coc-snippets',
-    "\ 'coc-python',
+  \ 'coc-python',
   \ 'coc-sql',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-tsserver',
+  \ 'coc-json',
   \ 'coc-explorer',
   \ 'coc-vetur',
   \ 'coc-html',
@@ -24,7 +25,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> CR <Plug>(coc-rename)
 nmap <silent> CF <Plug>(coc-format-selected)
 xmap <silent> CF <Plug>(coc-format-selected)
-nmap <leader>fc  <Plug>(coc-fix-current)"
+nmap <leader> fc  <Plug>(coc-fix-current)"
 
 
 
@@ -38,6 +39,13 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

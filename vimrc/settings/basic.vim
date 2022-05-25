@@ -15,7 +15,9 @@ set cursorline
 set colorcolumn=150
 set tabstop=2
 set shiftwidth=2
+set cmdheight=2
 set softtabstop=2
+set updatetime=300
 set shiftround
 set expandtab
 set hidden
