@@ -21,6 +21,11 @@ highlight GitGutterDeleteLine guibg=#993333
 "let g:blamer_relative_time = 1
 "let g:gitp_blame_format = '     %{account} * %{ago}'
 
+nmap <C-w>m <Plug>(git-messenger)
+let g:git_messenger_no_default_mappings = v:true
+let g:git_messenger_close_on_cursor_moved = v:false
+let g:git_messenger_always_into_popup = v:true
+
 let g:NERDTreeGitStatusIndicatorMapCustom = {
             \ "Modified"  : "✹",
             \ "Staged"    : "✚",

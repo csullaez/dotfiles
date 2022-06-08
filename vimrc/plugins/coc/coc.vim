@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
   \ 'coc-vetur',
   \ 'coc-html',
   \ 'coc-phpls',
+  \ 'coc-styled-components',
   \ ]
 " Explorer config
 nnoremap <F3> :CocCommand explorer<CR>

@@ -34,3 +34,9 @@ map ?  <Plug>(incsearch-backward)
 nnoremap + <c-w>5>
 nnoremap - <c-w>5<
 
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
+
+"noremap <leader>b :execute "Shell git blame -L " . eval(line(".")-5) . ",+10 %"<cr>
+nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>

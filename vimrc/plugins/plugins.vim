@@ -30,6 +30,8 @@ Plug 'Sirver/ultisnips'
 ""Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'APZelos/blamer.nvim'
+Plug 'zivyangll/git-blame.vim'
+Plug 'rhysd/git-messenger.vim'
 "Complements para carpetas e iconos
 ""Plug 'Shougo/defx.nvim'
 "Plug 'ryanoasis/vim-devicons'
@@ -44,7 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
 "
 ""It is similar to Eslint
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 "
 ""Plug 'lukelbd/vim-tabline'
 "Plug 'kdheepak/tabline.nvim'
