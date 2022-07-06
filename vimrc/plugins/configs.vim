@@ -1,5 +1,9 @@
 "Para comentar con CTRL+\
 map <C-\> <Plug>NERDCommenterInvert
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_java = 1
 
 "navigation entre Buffers abiertos
 nnoremap <C-h> <C-w>h
@@ -40,3 +44,11 @@ let g:ale_sign_warning = '⚠️'
 
 "noremap <leader>b :execute "Shell git blame -L " . eval(line(".")-5) . ",+10 %"<cr>
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
+
+
+
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_quit_key = '<Esc>'
+let g:multi_cursor_next_key = '<C-m>'
+let g:multi_cursor_skip_key = '<C-M>'
+let g:pipe2eval_map_key = '<Leader>mg'

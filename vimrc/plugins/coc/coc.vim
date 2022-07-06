@@ -12,6 +12,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-phpls',
   \ 'coc-styled-components',
+  \ 'coc-highlight',
   \ ]
 " Explorer config
 nnoremap <F3> :CocCommand explorer<CR>
@@ -54,6 +55,19 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
+
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
@@ -69,3 +83,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-w> <Plug>(coc-range-select)
 xmap <silent> <C-w> <Plug>(coc-range-select)
+
+
+" Run the Code Lens action on the current line.
+nmap <silent> CT  <Plug>(coc-codelens-action)
+autocmd CursorHold * silent call CocActionAsync('highlight')

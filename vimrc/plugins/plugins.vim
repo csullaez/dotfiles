@@ -56,7 +56,8 @@ Plug 'kristijanhusak/vim-packager'
 Plug 'bandagriss/vim-dadbod-ui'
 
 "Complement for Scroll
-Plug 'yuttie/comfortable-motion.vim'
+" Plug 'yuttie/comfortable-motion.vim'
+Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 

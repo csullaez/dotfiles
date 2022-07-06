@@ -16,10 +16,10 @@ highlight GitGutterAddLine    guibg=#004b6e
 highlight GitGutterChangeLine guibg=#3e5f8a
 highlight GitGutterDeleteLine guibg=#993333
 
-"let g:blamer_enabled = 1
-"let g:blamer_delay = 500
-"let g:blamer_relative_time = 1
-"let g:gitp_blame_format = '     %{account} * %{ago}'
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_relative_time = 1
+let g:gitp_blame_format = '     %{account} * %{ago}'
 
 nmap <C-w>m <Plug>(git-messenger)
 let g:git_messenger_no_default_mappings = v:true
