@@ -1,5 +1,7 @@
 " Tema
 colorscheme codedark
+" colorscheme onehalfdark
+" colorscheme minimalist
 set background=dark
 " Transparencia
 hi Normal ctermbg=NONE guibg=NONE
@@ -8,7 +10,7 @@ hi EndOfBuffer ctermfg=NONE guibg=NONE
 
 
 " Barra inferior
-let g:airline_theme='base16_spacemacs'
+let g:airline_theme='kolor'
 let g:airline_powerline_fonts             = 1
 let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tabline#fnamemod = ':t'

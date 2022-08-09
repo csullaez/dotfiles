@@ -45,9 +45,14 @@ set noshowmode
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+set termguicolors
+let g:quantum_italics=1
+colorscheme quantum
 set t_Co=256
 " "set termguicolors
 " " for vim 8
 if (has("termguicolors"))
      set termguicolors     " enable true colors support
 endif
+
+set backspace=indent,eol,start

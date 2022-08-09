@@ -1,5 +1,5 @@
 let g:coc_global_extensions = [
-  "\ 'coc-tabnine',
+  \ 'coc-tabnine',
   \ 'coc-snippets',
   \ 'coc-python',
   \ 'coc-sql',
@@ -13,6 +13,8 @@ let g:coc_global_extensions = [
   \ 'coc-phpls',
   \ 'coc-styled-components',
   \ 'coc-highlight',
+  \ 'coc-pairs',
+  \ 'coc-fzf-preview'
   \ ]
 " Explorer config
 nnoremap <F3> :CocCommand explorer<CR>
@@ -32,10 +34,10 @@ nmap <leader> fc  <Plug>(coc-fix-current)"
 
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -49,7 +51,7 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use K to show documentation in preview window.
@@ -87,4 +89,5 @@ xmap <silent> <C-w> <Plug>(coc-range-select)
 
 " Run the Code Lens action on the current line.
 nmap <silent> CT  <Plug>(coc-codelens-action)
+
 autocmd CursorHold * silent call CocActionAsync('highlight')

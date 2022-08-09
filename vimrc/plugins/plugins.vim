@@ -18,7 +18,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
 ""Temas para vim
 Plug 'tomasiser/vim-code-dark'
-"Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 "Plug 'rakr/vim-one' 
 ""Plug 'dracula/vim', { 'as': 'dracula'  }
 
@@ -38,7 +38,7 @@ Plug 'rhysd/git-messenger.vim'
 ""Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "Complements for typing
-Plug 'jiangmiao/auto-pairs' "Complemento para Cerrar parentesis
+" Plug 'jiangmiao/auto-pairs' "Complemento para Cerrar parentesis
 Plug 'alvan/vim-closetag' "React o HTML complemento para etiquetas
 Plug 'tpope/vim-surround'
 "
@@ -59,6 +59,13 @@ Plug 'bandagriss/vim-dadbod-ui'
 " Plug 'yuttie/comfortable-motion.vim'
 Plug 'psliwka/vim-smoothie'
 
+" Plugin for REACT
+Plug 'mlaursen/vim-react-snippets'
+Plug 'dikiaap/minimalist'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'frazrepo/vim-rainbow'
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim
