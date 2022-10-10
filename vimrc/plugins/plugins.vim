@@ -28,10 +28,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'Sirver/ultisnips'
 "Complementos para Git y GitLens para vim
 ""Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-Plug 'APZelos/blamer.nvim'
-Plug 'zivyangll/git-blame.vim'
-Plug 'rhysd/git-messenger.vim'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'APZelos/blamer.nvim'
+" Plug 'zivyangll/git-blame.vim'
+" Plug 'rhysd/git-messenger.vim'
 "Complements para carpetas e iconos
 ""Plug 'Shougo/defx.nvim'
 "Plug 'ryanoasis/vim-devicons'
@@ -73,6 +73,10 @@ Plug 'pangloss/vim-javascript'
 " Plugins NEOVIM
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "Instalar javascript, typescript, etc...
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'projekt0n/github-nvim-theme'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim

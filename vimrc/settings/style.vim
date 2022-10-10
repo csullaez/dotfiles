@@ -1,6 +1,7 @@
 " Tema
 " colorscheme codedark
-colorscheme onehalfdark
+colorscheme github_dark
+" colorscheme onehalfdark
 " colorscheme minimalist
 set background=dark
 " Transparencia
@@ -37,3 +38,14 @@ let g:airline_symbols.linenr = ''
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
+
+
+" Themes Github NEOVIM
+let g:github_function_style = "italic"
+let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+
+" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:github_colors = {
+  \ 'hint': 'orange',
+  \ 'error': '#ff0000'
+\ }
