@@ -65,7 +65,14 @@ Plug 'dikiaap/minimalist'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'frazrepo/vim-rainbow'
+" Plug 'frazrepo/vim-rainbow'
+
+
+
+
+" Plugins NEOVIM
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "Instalar javascript, typescript, etc...
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim

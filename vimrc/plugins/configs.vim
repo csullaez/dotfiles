@@ -52,3 +52,16 @@ let g:multi_cursor_quit_key = '<Esc>'
 let g:multi_cursor_next_key = '<C-m>'
 let g:multi_cursor_skip_key = '<C-M>'
 let g:pipe2eval_map_key = '<Leader>mg'
+
+
+lua <<EOF
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
+EOF

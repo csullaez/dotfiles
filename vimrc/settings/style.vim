@@ -1,6 +1,6 @@
 " Tema
-colorscheme codedark
-" colorscheme onehalfdark
+" colorscheme codedark
+colorscheme onehalfdark
 " colorscheme minimalist
 set background=dark
 " Transparencia
