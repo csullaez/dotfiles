@@ -66,6 +66,10 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'frazrepo/vim-rainbow'
+
+" DART
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim

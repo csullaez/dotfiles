@@ -14,7 +14,9 @@ let g:coc_global_extensions = [
   \ 'coc-styled-components',
   \ 'coc-highlight',
   \ 'coc-pairs',
-  \ 'coc-fzf-preview'
+  \ 'coc-fzf-preview',
+  \ 'coc-flutter',
+  \ 'coc-flutter-tools'
   \ ]
 " Explorer config
 nnoremap <F3> :CocCommand explorer<CR>
@@ -31,7 +33,10 @@ nmap <silent> CF <Plug>(coc-format-selected)
 xmap <silent> CF <Plug>(coc-format-selected)
 nmap <leader> fc  <Plug>(coc-fix-current)"
 
-
+" Config Flutter
+nnoremap <F4> :CocCommand flutter.dev.hotRestart<CR>
+nnoremap <F6> :CocCommand flutter.run<CR>
+nnoremap <leader>fR :FlutterHotRestart<cr>
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
