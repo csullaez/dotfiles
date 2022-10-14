@@ -65,10 +65,9 @@ Plug 'dikiaap/minimalist'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-" Plug 'frazrepo/vim-rainbow'
-
-
-
+" DART
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 
 " Plugins NEOVIM
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -77,6 +76,8 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'projekt0n/github-nvim-theme'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'frazrepo/vim-rainbow'
+
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim
