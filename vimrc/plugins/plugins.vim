@@ -77,6 +77,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'projekt0n/github-nvim-theme'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " pacman -S ripgrep
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim

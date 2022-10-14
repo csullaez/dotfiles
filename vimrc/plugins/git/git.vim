@@ -43,7 +43,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
             \ }
 
 
-highlight link GitSignsCurrentLineBlame Visual
 lua <<EOF
 require('gitsigns').setup {
   signs = {
