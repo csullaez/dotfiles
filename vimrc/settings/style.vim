@@ -13,16 +13,15 @@ hi EndOfBuffer ctermfg=NONE guibg=NONE
 " Barra inferior
 let g:airline_theme='kolor'
 let g:airline_powerline_fonts             = 1
-let g:airline#extensions#tabline#enabled  = 1
+" let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_section_z                   = airline#section#create([
      \ '%1p%% ',
      \ 'Ξ%l%',
      \ '\⍿%c'])
 let g:mucomplete#enable_auto_at_startup = 1
-let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)
+" let g:airline#extensions#tabline#enabled = 1  " Mostrar buffers abiertos (como pestañas)
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#fnamemod = ':t' 
 let g:airline#extensions#tabline#show_buffers = 1 " Mostrar sólo el nombre del archivo
 let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtree']
 

@@ -54,6 +54,11 @@ let g:multi_cursor_skip_key = '<C-M>'
 let g:pipe2eval_map_key = '<Leader>mg'
 
 
+nnoremap <silent> <C-d> :call comfortable_motion#flick(10)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-10)<CR>
+let g:comfortable_motion_friction = 200.0
+let g:comfortable_motion_air_drag = 0.0
+
 lua <<EOF
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
@@ -64,4 +69,45 @@ require("indent_blankline").setup {
     show_current_context = true,
     show_current_context_start = true,
 }
+
+require('bufferline').setup {
+  options = {
+    buffer_close_icon = '',
+    modified_icon = '●',
+    close_icon = '',
+    left_trunc_marker = '',
+    right_trunc_marker = '',
+
+    max_name_length = 18,
+    max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+    truncate_names = true, -- whether or not tab names should be truncated
+    tab_size = 18,
+    diagnostics = "coc",
+    diagnostics_update_in_insert = false,
+diagnostics_indicator = function(count, level, diagnostics_dict, context)
+  if context.buffer:current() then
+    return '('..count..')'
+  end
+
+  return "("..count..")"
+end,
+
+    separator_style = 'slant',
+    always_show_bufferline = true,
+    hover = {
+      enabled = true,
+      delay = 100,
+      reveal = {'close'}
+    },
+highlights = {
+        fill = {
+            bg = {
+                attribute = "fg",
+                highlight = "Pmenu"
+            }
+        }
+    }
+
+   },
+  }
 EOF

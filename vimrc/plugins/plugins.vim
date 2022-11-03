@@ -56,8 +56,8 @@ Plug 'kristijanhusak/vim-packager'
 Plug 'bandagriss/vim-dadbod-ui'
 
 "Complement for Scroll
-" Plug 'yuttie/comfortable-motion.vim'
-Plug 'psliwka/vim-smoothie'
+Plug 'yuttie/comfortable-motion.vim'
+" Plug 'psliwka/vim-smoothie'
 
 " Plugin for REACT
 Plug 'mlaursen/vim-react-snippets'
@@ -78,6 +78,10 @@ Plug 'projekt0n/github-nvim-theme'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " pacman -S ripgrep
 Plug 'frazrepo/vim-rainbow'
+
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+" Plug 'ryanoasis/vim-devicons' Icons without colours
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim
