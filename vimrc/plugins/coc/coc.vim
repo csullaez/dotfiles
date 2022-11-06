@@ -14,7 +14,6 @@ let g:coc_global_extensions = [
   \ 'coc-styled-components',
   \ 'coc-highlight',
   \ 'coc-pairs',
-  \ 'coc-fzf-preview',
   \ 'coc-flutter',
   \ 'coc-flutter-tools'
   \ ]
@@ -94,8 +93,6 @@ xmap <silent> <C-w> <Plug>(coc-range-select)
 
 " Run the Code Lens action on the current line.
 nmap <silent> CT  <Plug>(coc-codelens-action)
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 lua <<EOF
 require'nvim-web-devicons'.setup {

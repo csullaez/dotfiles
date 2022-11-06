@@ -79,7 +79,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " pacman -S ripgrep
 Plug 'frazrepo/vim-rainbow'
 
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 call plug#end()
