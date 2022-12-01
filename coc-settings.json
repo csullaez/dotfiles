@@ -9,7 +9,6 @@
   "colors.enable": true,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextAlign": "right",
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.virtualTextFormat": "✹ %message (%source%code)",
   "links.tooltip": true,
