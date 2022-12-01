@@ -1,9 +1,8 @@
 " Tema
 " colorscheme codedark
-colorscheme github_dark
+colorscheme tokyonight-storm
 " colorscheme onehalfdark
 " colorscheme minimalist
-set background=dark
 " Transparencia
 hi Normal ctermbg=NONE guibg=NONE
 hi NonText ctermbg=NONE guibg=NONE
@@ -11,7 +10,7 @@ hi EndOfBuffer ctermfg=NONE guibg=NONE
 
 
 " Barra inferior
-let g:airline_theme='kolor'
+let g:airline_theme='ayu_dark'
 let g:airline_powerline_fonts             = 1
 " let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
