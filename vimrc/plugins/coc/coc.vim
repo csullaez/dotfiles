@@ -20,6 +20,8 @@ let g:coc_global_extensions = [
 " Explorer config
 nnoremap <F3> :CocCommand explorer<CR>
 
+nmap <space>[ <Plug>(coc-diagnostic-prev)
+nmap <space>] <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

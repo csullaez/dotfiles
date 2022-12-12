@@ -26,4 +26,5 @@ nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <S-f> <cmd>Telescope live_grep<cr>
 nnoremap <Leader>bb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>mk <cmd>Telescope keymaps<cr>
 

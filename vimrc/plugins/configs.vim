@@ -6,10 +6,10 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
 
 "navigation entre Buffers abiertos
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-h> h
+nnoremap <C-j> j
+nnoremap <C-k> k
+nnoremap <C-l> l
 
 
 "navigation entre Buffers abiertos
