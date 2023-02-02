@@ -44,12 +44,6 @@ Plug 'tpope/vim-surround'
 "
 "Plug 'yggdroot/indentline' "Para indentaciones
 Plug 'easymotion/vim-easymotion' "Para navegar buscando letras
-"
-""It is similar to Eslint
-Plug 'dense-analysis/ale'
-"
-""Plug 'lukelbd/vim-tabline'
-"Plug 'kdheepak/tabline.nvim'
 "" Data Base
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-packager'

@@ -17,6 +17,8 @@ let g:coc_global_extensions = [
   \ 'coc-flutter',
   \ 'coc-flutter-tools'
   \ ]
+
+let g:coc_auto_fix = 1
 " Explorer config
 nnoremap <F3> :CocCommand explorer<CR>
 
