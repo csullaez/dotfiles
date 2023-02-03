@@ -38,7 +38,7 @@ set nowb
 set autoread
 set smartindent
 set noshowmode
-set scrolloff=15
+set scrolloff=10
 "Theme
 "set background=dark
 "syntax enable
