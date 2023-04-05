@@ -15,6 +15,7 @@ highlight GitGutterDelete guibg=#1b1b1b guifg=#ff2222 ctermfg=1 cterm=bold
 highlight GitGutterAddLine    guibg=#004b6e
 highlight GitGutterChangeLine guibg=#3e5f8a
 highlight GitGutterDeleteLine guibg=#993333
+highlight GitSignsCurrentLineBlame guifg=red
 
 " highlight Blamer guifg=lightgrey
 " let g:blamer_enabled = 1
@@ -51,6 +52,7 @@ require('gitsigns').setup {
     delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    untracked    = { text = '┆' },
   },
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
   numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -67,6 +69,8 @@ require('gitsigns').setup {
     virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
     delay = 500,
     ignore_whitespace = true,
+    virt_text_style = 'bold',
+    hl = 'GitSignsCurrentLineBlame',
   },
   current_line_blame_formatter = '     <author_time:%R>, (<author>) - <summary>',
   sign_priority = 6,

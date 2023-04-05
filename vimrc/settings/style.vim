@@ -11,7 +11,11 @@ hi EndOfBuffer ctermfg=NONE guibg=NONE
 
 
 " Barra inferior
-let g:airline_theme='ayu_dark'
+let g:airline_theme='ouo'
+let g:airline_theme_ouo = 1
+let g:airline_theme_ouo_bold = 1
+let g:airline_theme_ouo_contrast = 1
+let g:airline_theme_ouo_invert = 1
 let g:airline_powerline_fonts             = 1
 " let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
