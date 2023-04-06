@@ -1,10 +1,9 @@
 {
-  "snippets.priority": 1,
+  "snippets.priority": 99,
   "snippets.extends": {
     "typescript": ["javascript"]
   },
   //  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
   "codeLens.enable": true,
   "colors.enable": true,
   "diagnostic.checkCurrentLine": true,
@@ -14,10 +13,29 @@
   "diagnostic.errorSign": "❌",
   "diagnostic.warningSign": "⚠️",
   "diagnostic.hintSign": "❕",
+  "javascript.implementationsCodeLens.enabled": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
   "links.tooltip": true,
   "highlight.colors.enable": true,
   "vetur.trace.server": "verbose",
   "vetur.ignoreProjectWarning": true,
+  "eslint.packageManager": "npm",
+  "languageserver": {
+    "tsserver": {
+      "command": "tsserver",
+      "args": ["--stdio"],
+      "filetypes": ["javascript", "javascript.jsx", "typescript", "typescript.tsx"],
+      "trace.server": "verbose",
+      "rootPatterns": ["package.json", "tsconfig.json", ".git"],
+      "initializationOptions": {
+        "useWorkspaceTsdk": true
+      }
+    }
+  },
   "explorer.icon.source": "nvim-web-devicons",
   "explorer.icon.enableNerdfont": true,
   "explorer.git.icon.status.added": "➕",
@@ -40,7 +58,9 @@
     "yn": "copyFilename",
     "s": "toggleSelection"
   },
+  "tabnine.enablePreselect": true,
   "snippets.ultisnips.enable": true,
   "snippets.textmateSnippetsRoots": ["/home/carloss/.vim/snippets/textmate"],
-  "snippets.snipmate.enable": true
+  "snippets.snipmate.enable": true,
+  "snippets.ultisnips.pythonPrompt": false
 }
