@@ -1,7 +1,7 @@
 " Tema
 " colorscheme codedark
 " colorscheme tokyonight-storm
-colorscheme nightfox
+colorscheme carbonfox
 " colorscheme onehalfdark
 " colorscheme minimalist
 " Transparencia
@@ -79,7 +79,7 @@ require('nightfox').setup({
       comments = "italic",     -- Value is any valid attr-list value `:help attr-list`
       conditionals = "NONE",
       constants = "NONE",
-      functions = "NONE",
+      functions = "italic",
       keywords = "bold",
       numbers = "NONE",
       operators = "NONE",

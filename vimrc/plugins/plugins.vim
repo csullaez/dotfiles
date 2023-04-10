@@ -76,6 +76,26 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " pacman -S ripgrep
 
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+
+Plug 'onsails/lspkind-nvim'
+
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-calc'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/cmp-nvim-lua'
+" For ultisnips users.
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+" For snippy users.
+Plug 'dcampos/nvim-snippy'
+Plug 'dcampos/cmp-snippy'
+" :MasonUpdate updates registry contents
 call plug#end()
 
 source ~/dotfiles/vimrc/plugins/coc/coc.vim

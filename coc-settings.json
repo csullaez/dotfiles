@@ -1,5 +1,8 @@
 {
   "snippets.priority": 99,
+  "suggest.enableFloat": false,
+  "suggest.autoTrigger": "none",
+  "coc.preferences.floatActions": false,
   "snippets.extends": {
     "typescript": ["javascript"]
   },
