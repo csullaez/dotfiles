@@ -27,13 +27,6 @@ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 nnoremap <leader>f :ZoomWinTabToggle<CR>
 
-
-
-" Maps requeridos
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-
-
 " Resize window with shift + and shift -
 nnoremap + <c-w>5>
 nnoremap - <c-w>5<
