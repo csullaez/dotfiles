@@ -31,9 +31,9 @@ Note:
   If in any case you don't have the file, create it and then add the above line.
   Once the previous step is finished, and PlugManager is installed, go to vim or nvim.
 - For Vim
-  `vim`
+  ``` vim ```
 - For Nvim
-  ` nvim`
+  ``` nvim ```
   run
-  `:PlugInstall`
+  ``` :PlugInstall ```
   And all plugins found in the configuration files will be automatically installed.
