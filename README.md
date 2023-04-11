@@ -34,6 +34,6 @@ Note:
   ``` vim ```
 - For Nvim
   ``` nvim ```
-  run
+run this command
   ``` :PlugInstall ```
-  And all plugins found in the configuration files will be automatically installed.
+And all plugins found in the configuration files will be automatically installed.
