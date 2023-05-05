@@ -3,9 +3,6 @@ return {
   dependencies = {
     {
       "jose-elias-alvarez/null-ls.nvim",
-      dependencies = {
-        "adalessa/php-code-actions.nvim",
-      },
     },
     {
       "williamboman/mason.nvim",

@@ -1,5 +1,6 @@
 -- Para cambiar el líder de teclas
 vim.g.mapleader = ' '
+vim.g.snippets = "luasnip"
 
 local opt = vim.o
 -- Set clipboard option
