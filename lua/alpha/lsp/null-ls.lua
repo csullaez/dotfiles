@@ -13,6 +13,6 @@ null_ls.setup {
 }
 
 vim.keymap.set({ "n", "v" }, "CA", vim.lsp.buf.code_action, {desc = "LSP (null ls) Code actions"})
--- vim.keymap.set("n", "CF", function()
---   return vim.lsp.buf.format { async = true }
--- end, {desc = "LSP (null ls) Format file"})
+--vim.keymap.set("n", "CF", function()
+--  return vim.lsp.buf.format { async = true }
+--end, {desc = "LSP (null ls) Format file"})

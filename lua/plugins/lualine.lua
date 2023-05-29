@@ -4,7 +4,7 @@ return {
   config = function()
     require("lualine").setup {
       options = {
-        theme = "carbonfox",
+        theme = "bluloco",
         icons_enabled = true,
         globalstatus = true,
       },

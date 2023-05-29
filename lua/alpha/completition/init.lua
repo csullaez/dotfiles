@@ -1,5 +1,4 @@
 local cmp = require "cmp"
-local lspkind = require "lspkind"
 local luasnip = require "luasnip"
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local compare = require "cmp.config.compare"
@@ -136,7 +135,7 @@ cmp.setup {
 
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
 
