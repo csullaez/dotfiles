@@ -14,7 +14,6 @@ end
 
 return {
   ["emmet_ls"] = function()
-
     return {
       on_attach = lsp_attach,
       flags = lsp_flags,
@@ -52,28 +51,6 @@ return {
           hint = {
             enable = true,
           }
-        },
-      },
-    }
-  end,
-  ["marksman"] = default,
-  ["rust_analyzer"] = function()
-    return {
-      on_attach = lsp_attach,
-      flags = lsp_flags,
-      settings = {
-        ["rust-analyzer"] = {
-          checkOnSave = {
-            allFeatures = true,
-            overrideCommand = {
-              "cargo",
-              "clippy",
-              "--workspace",
-              "--message-format=json",
-              "--all-targets",
-              "--all-features",
-            },
-          },
         },
       },
     }

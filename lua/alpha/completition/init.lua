@@ -2,12 +2,12 @@ local cmp = require "cmp"
 local luasnip = require "luasnip"
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local compare = require "cmp.config.compare"
-local lspconfig = require'lspconfig'
-lspconfig.tsserver.setup{}
+local lspconfig = require 'lspconfig'
+lspconfig.tsserver.setup {}
 
 local check_backspace = function()
-	local col = vim.fn.col "." - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
 local kind_icons = {
@@ -36,15 +36,15 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
-	--cmp_tabnine = "T",
+  --cmp_tabnine = "T",
   cmp_tabnine = "",
 }
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 cmp.setup {
   autoselect = true,
   window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -59,30 +59,30 @@ cmp.setup {
       end
     end, { "i", "s" }),
     ["<Down>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
-			else
-				fallback()
-			end
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
+      else
+        fallback()
+      end
     end, { "i", "s" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif check_backspace() then
-				fallback()
-			else
-				fallback()
-			end
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
+      else
+        fallback()
+      end
     end, { "i", "s" }),
     ["<Up>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -143,22 +143,22 @@ cmp.setup {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			if entry.source.name == "cmp_tabnine" then
-				vim_item.kind = ""
-				if detail and detail:find('.*%%.*') then
-					vim_item.kind = vim_item.kind .. ' ' .. detail
-				end
-			end
+      if entry.source.name == "cmp_tabnine" then
+        vim_item.kind = ""
+        if detail and detail:find('.*%%.*') then
+          vim_item.kind = vim_item.kind .. ' ' .. detail
+        end
+      end
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-				cmp_tabnine = "[TN]",
+        cmp_tabnine = "[TN]",
         ["vim-dadbod-completion"] = "[DB]",
       })[entry.source.name]
-			return vim_item
-		end,
+      return vim_item
+    end,
   },
 
   sorting = {
@@ -171,7 +171,6 @@ cmp.setup {
 
   experimental = {
     native_menu = false,
-
     ghost_text = false,
   },
 }

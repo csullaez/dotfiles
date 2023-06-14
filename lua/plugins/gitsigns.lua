@@ -59,14 +59,14 @@ return {
         end
 
         -- Navigation
-        map('n', ']c', function()
-          if vim.wo.diff then return ']c' end
+        map('n', 'gnc', function()
+          if vim.wo.diff then return 'gnc' end
           vim.schedule(function() gs.next_hunk() end)
           return '<Ignore>'
         end, {expr=true})
 
-        map('n', '[c', function()
-          if vim.wo.diff then return '[c' end
+        map('n', 'gpc', function()
+          if vim.wo.diff then return 'gpc' end
           vim.schedule(function() gs.prev_hunk() end)
           return '<Ignore>'
         end, {expr=true})

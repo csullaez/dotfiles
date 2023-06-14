@@ -4,12 +4,12 @@ return {
     "rafamadriz/friendly-snippets",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("alpha.confluasnip")
-    end,
+    end
   },
   event = "VeryLazy",
   opts = {
     history = true,
     delete_check_events = "TextChanged",
   },
+  -- require("lua.alpha.snippets.typescript")
 }

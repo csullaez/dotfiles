@@ -36,7 +36,7 @@ vim.api.nvim_set_keymap(
 
 map_tele("<C-p>", "project_files", { desc = "Open Project files" })
 map_tele("<leader>bh", "oldfiles", { desc = "Open Old Files" })
-map_tele("<leader>gc", "branches", { desc = "Git Branches selector" })
+map_tele("<leader>gb", "branches", { desc = "Git Branches selector" })
 map_tele("<leader>pw", "grep_word", { desc = "Grep word under cursor" })
 map_tele("<S-f>", "grep_string", { desc = "Grep provided input string" })
 map_tele("<leader>rc", "search_config", { desc = "Search Files in .dotfiles directory" })
