@@ -1,9 +1,10 @@
-local cmp = require "cmp"
-local luasnip = require "luasnip"
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-local compare = require "cmp.config.compare"
-local lspconfig = require 'lspconfig'
+local cmp = require("cmp")
+local luasnip = require("luasnip")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local compare = require("cmp.config.compare")
+local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -11,66 +12,46 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-  Text = "",
+  Text = "",
   Method = "m",
-  Function = "",
+  Function = "",
   Constructor = "",
   Field = "",
-  Variable = "",
-  Class = "",
+  Variable = "",
+  Class = "",
   Interface = "",
   Module = "",
   Property = "",
   Unit = "",
-  Value = "",
+  Value = "",
   Enum = "",
   Keyword = "",
   Snippet = "",
-  Color = "",
-  File = "",
+  Color = "",
+  File = "",
   Reference = "",
-  Folder = "",
+  Folder = "",
   EnumMember = "",
-  Constant = "",
+  Constant = "",
   Struct = "",
   Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Operator = "",
+  TypeParameter = "",
   --cmp_tabnine = "T",
-  cmp_tabnine = "",
+  cmp_tabnine = "",
 }
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 cmp.setup {
   autoselect = true,
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
+  completion = {
+    completeopt = "menu,menuone,preview,noselect"
+  },
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-e>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.close()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    ["<Down>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif check_backspace() then
-        fallback()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -84,15 +65,6 @@ cmp.setup {
         fallback()
       end
     end, { "i", "s" }),
-    ["<Up>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s", }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -106,14 +78,15 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
-    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    -- ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-Space>"] = cmp.mapping.complete(),
   },
   sources = {
+    { name = "luasnip" },
     { name = "path" },
     { name = "nvim_lsp" },
     { name = 'cmp_tabnine' },
     { name = "nvim_lua" },
-    { name = "luasnip" },
     { name = "nvim_lsp_signature_help" },
     {
       name = "buffer",

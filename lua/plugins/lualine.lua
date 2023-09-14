@@ -4,7 +4,8 @@ return {
   config = function()
     require("lualine").setup {
       options = {
-        theme = "bluloco",
+        theme = "auto",
+        -- theme = "bluloco",
         icons_enabled = true,
         globalstatus = true,
       },

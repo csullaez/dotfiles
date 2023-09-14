@@ -81,3 +81,4 @@ opt.t_Co = 256
 if vim.fn.has("termguicolors") == 1 then
   opt.termguicolors = true
 end
+vim.cmd("set guifont=Victor\\ Mono:h12")
