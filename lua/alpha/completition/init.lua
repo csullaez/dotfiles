@@ -1,10 +1,12 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local compare = require("cmp.config.compare")
 local lspconfig = require('lspconfig')
-lspconfig.tsserver.setup {}
+-- require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/lua/alpha/snippets" } })
+-- require("luasnip.loaders.from_vscode").lazy_load({paths = { "../snippets/typescriptreact.json"}})
+lspconfig.tsserver.setup {}
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1

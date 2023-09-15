@@ -1,9 +1,17 @@
-local mason = require "mason"
-local mason_lspconfig = require "mason-lspconfig"
-local servers = require "alpha.lsp.servers"
-local lspconfig = require "lspconfig"
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
+local servers = require("alpha.lsp.servers")
+local lspconfig = require("lspconfig")
 
-mason.setup()
+mason.setup({
+  ui = {
+    icons = {
+      package_installed = "",
+      package_pending = "",
+      package_uninstalled = ""
+    }
+  }
+})
 
 local mason_servers = {}
 

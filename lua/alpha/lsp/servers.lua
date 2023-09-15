@@ -1,4 +1,4 @@
-local lsp_attach = require "alpha.lsp.attach"
+local lsp_attach = require("alpha.lsp.attach")
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lsp_flags = {
@@ -57,6 +57,7 @@ return {
   end,
   ["tsserver"] = function()
     return {
+      capabilities = capabilities,
       on_attach = lsp_attach,
       flags = lsp_flags,
       settings = {
