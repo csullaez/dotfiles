@@ -1,11 +1,10 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local compare = require("cmp.config.compare")
 local lspconfig = require('lspconfig')
--- require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/lua/alpha/snippets" } })
--- require("luasnip.loaders.from_vscode").lazy_load({paths = { "../snippets/typescriptreact.json"}})
 lspconfig.tsserver.setup {}
 
 local check_backspace = function()
@@ -42,6 +41,7 @@ local kind_icons = {
   --cmp_tabnine = "T",
   cmp_tabnine = "",
 }
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 cmp.setup {
   autoselect = true,
   window = {
@@ -80,7 +80,6 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
-    -- ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping.complete(),
   },
   sources = {

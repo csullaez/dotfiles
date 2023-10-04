@@ -9,7 +9,7 @@
   "clv": {
     "prefix": "clv",
     "body": [
-      "console.log('$1:', ${1:})"
+      "console.log('${0}: ', ${0})"
     ],
     "description": "console.log variable"
   },
@@ -17,7 +17,7 @@
     "prefix": "cld",
     "body": [
       "console.log('################################')",
-      "console.log('$1:', ${1:})",
+      "console.log($1)",
       "console.log('################################')"
     ],
     "description": "console.log variable"
