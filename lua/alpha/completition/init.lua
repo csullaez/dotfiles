@@ -54,7 +54,8 @@ cmp.setup {
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<C-j>"] = cmp.mapping(function(fallback)
+    -- ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
@@ -67,7 +68,8 @@ cmp.setup {
         fallback()
       end
     end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    ["<C-k>"] = cmp.mapping(function(fallback)
+    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -84,8 +86,8 @@ cmp.setup {
   },
   sources = {
     { name = "luasnip" },
-    { name = "path" },
     { name = "nvim_lsp" },
+    { name = "path" },
     { name = 'cmp_tabnine' },
     { name = "nvim_lua" },
     { name = "nvim_lsp_signature_help" },

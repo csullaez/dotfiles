@@ -13,12 +13,31 @@
     ],
     "description": "console.log variable"
   },
-  "cld": {
-    "prefix": "cld",
+  "cl1": {
+    "prefix": "cl1",
     "body": [
-      "console.log('################################')",
+      "console.log('##############ANTES#############')",
       "console.log($1)",
-      "console.log('################################')"
+      "console.log('#############DESPUES############')"
+    ],
+    "description": "console.log variable"
+  }
+,
+  "cl2": {
+    "prefix": "cl2",
+    "body": [
+      "console.log('@@@@@@@@@@@@@ANTES@@@@@@@@@@@@@@')",
+      "console.log($1)",
+      "console.log('@@@@@@@@@@@@DESPUES@@@@@@@@@@@@@')"
+    ],
+    "description": "console.log variable"
+  },
+  "cl3": {
+    "prefix": "cl3",
+    "body": [
+      "console.log('%%%%%%%%%%%%%ANTES%%%%%%%%%%%%%%%')",
+      "console.log($1)",
+      "console.log('%%%%%%%%%%%%%DESPUES%%%%%%%%%%%%%')"
     ],
     "description": "console.log variable"
   }
