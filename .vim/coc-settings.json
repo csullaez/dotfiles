@@ -1,18 +1,17 @@
 {
-  "snippets.priority":" 1",
+  "snippets.priority":1,
   "snippets.extends": {
     "typescript": ["javascript"]
   },
   "snippets.textmateSnippetsRoots": ["/home/carloss/.vim/snippets/textmate"],
-  "snippets.snipmate.enable": "true",
+  "snippets.snipmate.enable": true,
 //  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
   "eslint.packageManager": "yarn",
   "eslint.nodePath": ".yarn/sdks",
   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
   "vetur.trace.server": "verbose",
-  "vetur.ignoreProjectWarning": "true",
+  "vetur.ignoreProjectWarning": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.showHiddenFiles": true, 
   "explorer.git.icon.status.added": "✚",
   "explorer.git.icon.status.deleted": "✖",
   "explorer.git.icon.status.renamed": "➜",
@@ -21,8 +20,6 @@
   "explorer.git.icon.status.modified": "✹",
   "explorer.git.icon.status.ignored": "☒",
   "explorer.git.icon.status.mixed": "*",
-  // valor que hace que se habra y cierre el coc-explorer
-  //"explorer.quitOnOpen": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.file.column.clip.copy": "",
   "explorer.file.column.clip.cut": "",
@@ -31,8 +28,8 @@
   "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
   "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
   "explorer.keyMappings.global": {
-  " yp": "copyFilepath",
-   "yn": "copyFilename",
-   "s": "toggleSelection",
-  },
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "s": "toggleSelection",
+  }
 }

@@ -1,0 +1,44 @@
+{
+  "cl": {
+    "prefix": "cl",
+    "body": [
+      "console.log($1)"
+    ],
+    "description": "console.log"
+  },
+  "clv": {
+    "prefix": "clv",
+    "body": [
+      "console.log('${0}: ', ${0})"
+    ],
+    "description": "console.log variable"
+  },
+  "cl1": {
+    "prefix": "cl1",
+    "body": [
+      "console.log('##############ANTES#############')",
+      "console.log($1)",
+      "console.log('#############DESPUES############')"
+    ],
+    "description": "console.log variable"
+  }
+,
+  "cl2": {
+    "prefix": "cl2",
+    "body": [
+      "console.log('@@@@@@@@@@@@@ANTES@@@@@@@@@@@@@@')",
+      "console.log($1)",
+      "console.log('@@@@@@@@@@@@DESPUES@@@@@@@@@@@@@')"
+    ],
+    "description": "console.log variable"
+  },
+  "cl3": {
+    "prefix": "cl3",
+    "body": [
+      "console.log('%%%%%%%%%%%%%ANTES%%%%%%%%%%%%%%%')",
+      "console.log($1)",
+      "console.log('%%%%%%%%%%%%%DESPUES%%%%%%%%%%%%%')"
+    ],
+    "description": "console.log variable"
+  }
+}

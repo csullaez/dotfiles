@@ -10,7 +10,8 @@ endfunction
 
 let g:dbs = {
 \  'seprecdb': 'postgres://postgres:postgres@localhost:5432/seprecdb',
-\  'seprec_produccion': 'postgres://postgres:postgres@10.101.27.69:5432/seprec_produccion'
+\  'seprec_produccion': 'postgres://postgres:postgres@10.101.27.69:5432/seprec_produccion',
+\  'registradordb': 'postgres://postgres:postgres@localhost:5432/registradordb',
 \ }
  
 let g:db_ui_auto_execute_table_helpers = 1
@@ -55,8 +56,8 @@ let g:db_ui_tmp_query_location = '~/Consultas'
 " ACTIVATE :DBUI
 let g:db_ui_table_helpers = {
       \ 'postgresql': {
-      \    'Count': 'select count(*) from "{table}"',
-      \    'List': 'select * from "{table}" order by id desc limit 20'
+      \    'Count': 'select count(*) from {table}',
+      \    'List': 'select * from {table} order by id desc limit 20'
       \   }
       \ }
  

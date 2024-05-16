@@ -1,13 +1,46 @@
 {
-  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
-  "eslint.packageManager": "yarn",
-  "eslint.nodePath": ".yarn/sdks",
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
-  "tabnine.shortcut": "A",
+  "snippets.priority": 99,
+  "suggest.enableFloat": false,
+  "suggest.autoTrigger": "none",
+  "coc.preferences.floatActions": false,
+  "snippets.extends": {
+    "typescript": ["javascript"]
+  },
+  //  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
+  "codeLens.enable": true,
+  "colors.enable": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextFormat": "✹ %message (%source%code)",
+  "diagnostic.errorSign": "❌",
+  "diagnostic.warningSign": "⚠️",
+  "diagnostic.hintSign": "❕",
+  "javascript.implementationsCodeLens.enabled": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "links.tooltip": true,
+  "highlight.colors.enable": true,
   "vetur.trace.server": "verbose",
-  "vetur.ignoreProjectWarning": "true",
+  "vetur.ignoreProjectWarning": true,
+  "eslint.packageManager": "npm",
+  "languageserver": {
+    "tsserver": {
+      "command": "tsserver",
+      "args": ["--stdio"],
+      "filetypes": ["javascript", "javascript.jsx", "typescript", "typescript.tsx"],
+      "trace.server": "verbose",
+      "rootPatterns": ["package.json", "tsconfig.json", ".git"],
+      "initializationOptions": {
+        "useWorkspaceTsdk": true
+      }
+    }
+  },
+  "explorer.icon.source": "nvim-web-devicons",
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.showHiddenFiles": true, 
   "explorer.git.icon.status.added": "➕",
   "explorer.git.icon.status.deleted": "♻️",
   "explorer.git.icon.status.renamed": "📝",
@@ -16,18 +49,21 @@
   "explorer.git.icon.status.modified": "🛠️",
   "explorer.git.icon.status.ignored": "📛",
   "explorer.git.icon.status.mixed": "✨",
-  // valor que hace que se habra y cierre el coc-explorer
-  //"explorer.quitOnOpen": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.file.column.clip.copy": "",
   "explorer.file.column.clip.cut": "",
   "explorer.width": 35,
   "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
   "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
-  "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+  "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
   "explorer.keyMappings.global": {
-   "yp": "copyFilepath",
-   "yn": "copyFilename",
-   "s": "toggleSelection"
-  }
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "s": "toggleSelection"
+  },
+  "tabnine.enablePreselect": true,
+  "snippets.ultisnips.enable": true,
+  "snippets.textmateSnippetsRoots": ["/home/carloss/.vim/snippets/textmate"],
+  "snippets.snipmate.enable": true,
+  "snippets.ultisnips.pythonPrompt": false
 }

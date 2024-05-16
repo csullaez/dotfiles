@@ -1,0 +1,5 @@
+require("config.options")
+require("config.lazy")
+require("alpha.mappings")
+require("alpha.globals")
+-- require("config.style")
