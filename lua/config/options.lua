@@ -12,7 +12,7 @@ opt.encoding = "UTF-8"
 -- Set terminal title
 opt.title = true
 -- Use Neovim-specific features
-opt.nocompatible = true
+-- opt.nocompatible = true
 -- Show line numbers
 vim.wo.number = true
 -- Show relative line numbers
@@ -76,9 +76,11 @@ opt.backspace = "indent,eol,start"
 -- Set colorscheme
 opt.termguicolors = true
 -- Set color depth to 256
-opt.t_Co = 256
+--opt.t_Co = 256
 -- Enable true color support for terminal
 if vim.fn.has("termguicolors") == 1 then
   opt.termguicolors = true
 end
+vim.o.guifont = "Fira Code:h14"
+-- vim.cmd("set guifont=Fira\\ Code:h14")
 -- vim.cmd("set guifont=Victor\\ Mono:h12")

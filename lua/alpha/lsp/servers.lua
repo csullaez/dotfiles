@@ -12,6 +12,18 @@ local default = function()
   }
 end
 
+
+local inlay_hints = {
+  includeInlayParameterNameHints = 'all',
+  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+  includeInlayFunctionParameterTypeHints = true,
+  includeInlayVariableTypeHints = true,
+  includeInlayPropertyDeclarationTypeHints = true,
+  includeInlayFunctionLikeReturnTypeHints = true,
+  includeInlayEnumMemberValueHints = true,
+  includeInlayVariableTypeHintsWhenTypeMatchesName = true
+}
+
 return {
   ["emmet_ls"] = function()
     return {
@@ -23,6 +35,7 @@ return {
   end,
   ["html"] = default,
   ["jsonls"] = default,
+  ["intelephense"] = default,
   ["eslint"] = function()
     return {
       on_attach = lsp_attach,
@@ -62,26 +75,10 @@ return {
       flags = lsp_flags,
       settings = {
         typescript = {
-          inlayHints = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-          },
+          inlayHints = inlay_hints,
         },
         javascript = {
-          inlayHints = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-          },
+          inlayHints = inlay_hints,
         },
       },
     }

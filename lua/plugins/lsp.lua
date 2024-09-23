@@ -18,7 +18,7 @@ return {
       "lvimuser/lsp-inlayhints.nvim",
       config = function()
         require("lsp-inlayhints").setup()
-        vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
+        --[[ vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
         vim.api.nvim_create_autocmd("LspAttach", {
           group = "LspAttach_inlayhints",
           callback = function(args)
@@ -30,7 +30,7 @@ return {
             local client = vim.lsp.get_client_by_id(args.data.client_id)
             require("lsp-inlayhints").on_attach(client, bufnr, false)
           end,
-        })
+        }) ]]
       end,
     },
     {

@@ -1,5 +1,5 @@
 return {
-  "olimorris/onedarkpro.nvim",
+  "catppuccin/nvim",
   lazy = false,
   priority = 1000,
   config = function()
@@ -8,6 +8,6 @@ return {
       }
     }) ]]
 
-    vim.cmd('colorscheme onedark_vivid')
+    vim.cmd('colorscheme catppuccin')
   end,
 }
