@@ -68,7 +68,7 @@ return {
       },
     }
   end,
-  ["tsserver"] = function()
+  ["ts_ls"] = function()
     return {
       capabilities = capabilities,
       on_attach = lsp_attach,

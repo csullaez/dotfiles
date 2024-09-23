@@ -3,9 +3,11 @@ local luasnip = require("luasnip")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local compare = require("cmp.config.compare")
 local lspconfig = require('lspconfig')
+
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/lua/alpha/snippets" } })
-lspconfig.tsserver.setup {}
+
+lspconfig.ts_ls.setup {}
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -14,20 +16,20 @@ end
 
 local kind_icons = {
   Text = "",
-  Method = "m",
-  Function = "",
+  Method = "🗂️",
+  Function = "📐",
   Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
+  Field = "🏗️",
+  Variable = "📊",
+  Class = "🧾",
   Interface = "",
   Module = "",
   Property = "",
   Unit = "",
   Value = "",
-  Enum = "",
+  Enum = "🔡",
   Keyword = "",
-  Snippet = "",
+  Snippet = "✂️",
   Color = "",
   File = "",
   Reference = "",
@@ -38,18 +40,16 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
-  --cmp_tabnine = "T",
   cmp_tabnine = "",
 }
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+
 cmp.setup {
-  autoselect = true,
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
   completion = {
-    completeopt = "menu,menuone,preview,noselect"
+    completeopt = "menu,menuone,noselect"
   },
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -79,7 +79,7 @@ cmp.setup {
       end
     end, { "i", "s", }),
     ["<CR>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
+      behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
     ["<C-Space>"] = cmp.mapping.complete(),
@@ -91,22 +91,7 @@ cmp.setup {
     { name = 'cmp_tabnine' },
     { name = "nvim_lua" },
     { name = "nvim_lsp_signature_help" },
-    {
-      name = "buffer",
-      keyword_length = 4,
-      option = {
-        get_bufnrs = function()
-          local bufs = {}
-          for _, win in ipairs(vim.api.nvim_list_wins()) do
-            local bufnr = vim.api.nvim_win_get_buf(win)
-            if vim.api.nvim_buf_get_option(bufnr, 'buftype') ~= 'terminal' then
-              bufs[bufnr] = true
-            end
-          end
-          return vim.tbl_keys(bufs)
-        end,
-      },
-    },
+    { name = "buffer",                 keyword_length = 4 },
   },
 
   snippet = {
@@ -120,17 +105,14 @@ cmp.setup {
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       if entry.source.name == "cmp_tabnine" then
-        vim_item.kind = ""
-        if detail and detail:find('.*%%.*') then
-          vim_item.kind = vim_item.kind .. ' ' .. detail
-        end
+        vim_item.kind = "🪄"
       end
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-        cmp_tabnine = "[TN]",
+        cmp_tabnine = "[Tabnine]",
         ["vim-dadbod-completion"] = "[DB]",
       })[entry.source.name]
       return vim_item
@@ -140,13 +122,17 @@ cmp.setup {
   sorting = {
     priority_weight = 2,
     comparators = {
+      compare.offset,
+      compare.exact,
+      compare.score,
       compare.kind,
       compare.sort_text,
+      compare.length,
+      compare.order,
     },
   },
 
   experimental = {
-    native_menu = false,
     ghost_text = false,
   },
 }
@@ -185,3 +171,5 @@ cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
     { name = "buffer" },
   }),
 })
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
