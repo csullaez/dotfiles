@@ -1,13 +1,16 @@
 {
-	"name": "example-snippets",
-	"contributes": {
-		"snippets": [
-			{
-				"language": [
-					"all"
-				],
-				"path": "./typescriptreact.json"
-			}
-		]
-	}
+  "name": "example-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "typescript",
+          "typescriptreact",
+          "javascript",
+          "javascriptreact"
+        ],
+        "path": "./typescriptreact.json"
+      }
+    ]
+  }
 }

@@ -5,30 +5,35 @@ local filetype_attach = setmetatable({}, {
     return function() end
   end,
 })
+
 return function(client, bufnr)
-  local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-  -- keymaps for lsp
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0, desc = "LSP Help information of symbol under the cursor" })
-  vim.keymap.set("n", "CR", vim.lsp.buf.rename, { buffer = 0, desc = "LSP Rename symbol under cursor" })
-  vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help, { buffer = 0, desc = "LSP Signature help" })
-  vim.keymap.set("n", "<leader>vo", ":LspRestart<cr>", { noremap = true, desc = "LSP Restart Server" })
-  vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { buffer = 0, desc = "LSP Code actions" })
-  --[[ vim.keymap.set("n", "CF", function()
-    return vim.lsp.buf.format {
-      async = true,
-      filter = function(cli)
-        return cli.name ~= "lua_ls"
-      end,
-    }
-  end, { buffer = 0, desc = "LSP format file" }) ]]
+  local filetype = vim.bo[bufnr].filetype
+  vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-  telescope_mapper("gr", "lsp_references", { buffer = true, desc = "LSP References of symbol on cursor" })
-  telescope_mapper("<leader>vb", "find_symbol", { buffer = true, desc = "LSP find symbol on the project" })
-  telescope_mapper("<leader>pd", "lsp_document_symbols", { buffer = true, desc = "LSP document symbols" })
-  telescope_mapper("gd", "lsp_definitions", { buffer = true, desc = "LSP go to definition" })
+  -- Opciones comunes para keymaps
+  local opts = { buffer = bufnr, desc = "" }
 
-  vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+  -- Funciones LSP
+  local function buf_set_keymap(mode, lhs, rhs, desc)
+    opts.desc = desc -- Establece la descripción por cada keymap
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 
-  -- Attach any filetype specific options to the client
+  -- Mapeos generales de LSP
+  buf_set_keymap("n", "K", vim.lsp.buf.hover, "LSP Help information of symbol under the cursor")
+  buf_set_keymap("n", "CR", vim.lsp.buf.rename, "LSP Rename symbol under cursor")
+  buf_set_keymap("i", "<C-h>", vim.lsp.buf.signature_help, "LSP Signature help")
+  buf_set_keymap("n", "<leader>vo", ":LspRestart<cr>", "LSP Restart Server")
+  buf_set_keymap("n", "CF", function() vim.lsp.buf.format { async = true } end, "LSP Format file")
+  buf_set_keymap({ "n", "v" }, "CA", vim.lsp.buf.code_action, "LSP Code actions")
+
+  -- Mapas de Telescope para LSP
+  telescope_mapper("gr", "lsp_references", { buffer = bufnr, desc = "LSP References of symbol under cursor" })
+  telescope_mapper("<leader>vb", "find_symbol", { buffer = bufnr, desc = "LSP Find symbol in project" })
+  telescope_mapper("<leader>pd", "lsp_document_symbols", { buffer = bufnr, desc = "LSP Document symbols" })
+  telescope_mapper("gd", "lsp_definitions", { buffer = bufnr, desc = "LSP Go to definition" })
+  telescope_mapper("gi", "lsp_implementations", { buffer = bufnr, desc = "LSP Go to implementation" })
+
+  -- Llama a funciones específicas por tipo de archivo
   filetype_attach[filetype](client, bufnr)
 end

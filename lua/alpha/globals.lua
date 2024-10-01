@@ -2,7 +2,7 @@
 ---@vararg any
 ---@return any
 dump = function(...)
-  local args = {...}
+  local args = { ... }
 
   local mapped = {}
   for _, v in ipairs(args) do

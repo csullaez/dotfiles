@@ -17,7 +17,7 @@
     "prefix": "cl1",
     "body": [
       "console.log('##############ANTES#############')",
-      "console.log($1)",
+      "console.log('${0}: ', ${0})",
       "console.log('#############DESPUES############')"
     ],
     "description": "console.log variable"
@@ -27,7 +27,7 @@
     "prefix": "cl2",
     "body": [
       "console.log('@@@@@@@@@@@@@ANTES@@@@@@@@@@@@@@')",
-      "console.log($1)",
+      "console.log('${0}: ', ${0})",
       "console.log('@@@@@@@@@@@@DESPUES@@@@@@@@@@@@@')"
     ],
     "description": "console.log variable"
@@ -36,7 +36,7 @@
     "prefix": "cl3",
     "body": [
       "console.log('%%%%%%%%%%%%%ANTES%%%%%%%%%%%%%%%')",
-      "console.log($1)",
+      "console.log('${0}: ', ${0})",
       "console.log('%%%%%%%%%%%%%DESPUES%%%%%%%%%%%%%')"
     ],
     "description": "console.log variable"

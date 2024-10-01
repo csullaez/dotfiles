@@ -84,3 +84,8 @@ end
 vim.o.guifont = "Fira Code:h14"
 -- vim.cmd("set guifont=Fira\\ Code:h14")
 -- vim.cmd("set guifont=Victor\\ Mono:h12")
+vim.fn.sign_define("LspDiagnosticsSignError", { text = "🚫", texthl = "LspDiagnosticsDefaultError" })
+vim.fn.sign_define("LspDiagnosticsSignWarning", { text = "⚠️", texthl = "LspDiagnosticsDefaultWarning" })
+vim.fn.sign_define("LspDiagnosticsSignInformation", { text = "ℹ️", texthl = "LspDiagnosticsDefaultInformation" })
+vim.fn.sign_define("LspDiagnosticsSignHint", { text = "💡", texthl = "LspDiagnosticsDefaultHint" })
+

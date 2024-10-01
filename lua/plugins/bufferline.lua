@@ -12,7 +12,7 @@ return {
 
         max_name_length = 25,
         max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
-        truncate_names = true, -- whether or not tab names should be truncated
+        truncate_names = true,  -- whether or not tab names should be truncated
         tab_size = 20,
         diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
@@ -21,16 +21,16 @@ return {
         },
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
           if context.buffer:current() then
-            return '('..count..')'
+            return '(' .. count .. ')'
           end
-          return "("..count..")"
+          return "(" .. count .. ")"
         end,
         -- separator_style = 'slope',
         always_show_bufferline = true,
         hover = {
           enabled = true,
           delay = 100,
-          reveal = {'close'}
+          reveal = { 'close' }
         },
         offsets = {
           {

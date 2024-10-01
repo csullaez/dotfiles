@@ -1,0 +1,32 @@
+return {
+  {
+    'tpope/vim-dadbod',
+    dependencies = {
+      'kristijanhusak/vim-dadbod-ui',
+      'kristijanhusak/vim-dadbod-completion',
+    },
+    config = function()
+      -- Configuración básica
+      vim.g.db_ui_save_location = vim.fn.stdpath("data") .. '/db_ui'
+      vim.g.db_ui_use_nerd_fonts = 1
+      vim.g.db_ui_winwidth = 30
+
+      -- Configuración de conexiones a bases de datos
+      vim.g.dbs = {
+        dev_postgres = 'postgresql://postgres:postgres@localhost:5432/postgres'
+      }
+
+      -- Configuración para usar psql a través de Docker
+      vim.g.db_psql_cmd = 'docker exec -i postgres160 psql'
+
+      -- Configuración adicional para mejorar la experiencia
+      vim.g.db_ui_table_helpers = {
+        postgres = {
+          Count = "SELECT COUNT(*) FROM {optional_schema}{table}",
+          Explain = "EXPLAIN ANALYZE {last_query}"
+        }
+      }
+      vim.g.db_ui_auto_execute_table_helpers = 1
+    end,
+  }
+}

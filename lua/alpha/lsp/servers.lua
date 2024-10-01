@@ -9,6 +9,7 @@ local default = function()
   return {
     on_attach = lsp_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
   }
 end
 
@@ -36,16 +37,11 @@ return {
   ["html"] = default,
   ["jsonls"] = default,
   ["intelephense"] = default,
-  ["eslint"] = function()
-    return {
-      on_attach = lsp_attach,
-      capabilities = capabilities,
-    }
-  end,
   ["lua_ls"] = function()
     return {
       on_attach = lsp_attach,
       flags = lsp_flags,
+      capabilities = capabilities,
       settings = {
         Lua = {
           runtime = {
@@ -71,7 +67,13 @@ return {
   ["ts_ls"] = function()
     return {
       capabilities = capabilities,
-      on_attach = lsp_attach,
+      on_attach = function(client, bufnr)
+        -- Deshabilitar el formato automático para tsserver
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.diagnosticProvider = false -- Desactiva el linting de tsserver
+        -- Mantén la función de adjunto personalizada
+        lsp_attach(client, bufnr)
+      end,
       flags = lsp_flags,
       settings = {
         typescript = {
@@ -82,5 +84,5 @@ return {
         },
       },
     }
-  end,
+  end
 }

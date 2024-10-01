@@ -9,7 +9,9 @@ return {
     "saadparwaiz1/cmp_luasnip",
   },
   event = "VeryLazy",
-  config = function()
+  main = "alpha.completition",
+  config = true
+  --[[ config = function()
     require "alpha.completition"
-  end,
+  end, ]]
 }

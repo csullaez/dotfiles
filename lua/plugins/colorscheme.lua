@@ -1,13 +1,9 @@
 return {
-  "catppuccin/nvim",
+  "EdenEast/nightfox.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    --[[ require('oceanicnext').setup({
-      options = {
-      }
-    }) ]]
 
-    vim.cmd('colorscheme catppuccin')
+    vim.cmd('colorscheme duskfox')
   end,
 }
