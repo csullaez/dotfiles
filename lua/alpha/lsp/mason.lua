@@ -23,11 +23,13 @@ for server, _ in pairs(servers) do
   end
 end
 
-mason_lspconfig.setup {
+mason_lspconfig.setup({
   ensure_installed = mason_servers,
-}
+  automatic_installation = true,
+  automatic_enable = false,
+})
 
--- filter the list for the ones not globally installed
-require("mason-tool-installer").setup {
-  ensure_installed = require "alpha.lsp.tools",
-}
+-- Configura mason-tool-installer después
+require("mason-tool-installer").setup({
+  ensure_installed = require("alpha.lsp.tools"),
+})

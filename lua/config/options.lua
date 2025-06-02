@@ -46,9 +46,9 @@ opt.smartcase = true
 -- Set spell check languages
 vim.bo.spelllang = "en,es"
 -- Use syntax-based folding
--- opt.foldmethod = "syntax"
+opt.foldmethod = "syntax"
 -- Disable folding by default
-opt.foldenable = false
+-- opt.foldenable = false
 -- Set folding level to 1
 opt.foldlevel = 1
 -- Set window split to below current window
@@ -84,8 +84,3 @@ end
 vim.o.guifont = "Fira Code:h14"
 -- vim.cmd("set guifont=Fira\\ Code:h14")
 -- vim.cmd("set guifont=Victor\\ Mono:h12")
-vim.fn.sign_define("LspDiagnosticsSignError", { text = "🚫", texthl = "LspDiagnosticsDefaultError" })
-vim.fn.sign_define("LspDiagnosticsSignWarning", { text = "⚠️", texthl = "LspDiagnosticsDefaultWarning" })
-vim.fn.sign_define("LspDiagnosticsSignInformation", { text = "ℹ️", texthl = "LspDiagnosticsDefaultInformation" })
-vim.fn.sign_define("LspDiagnosticsSignHint", { text = "💡", texthl = "LspDiagnosticsDefaultHint" })
-

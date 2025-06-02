@@ -25,7 +25,9 @@ return function(client, bufnr)
   buf_set_keymap("i", "<C-h>", vim.lsp.buf.signature_help, "LSP Signature help")
   buf_set_keymap("n", "<leader>vo", ":LspRestart<cr>", "LSP Restart Server")
   buf_set_keymap("n", "CF", function() vim.lsp.buf.format { async = true } end, "LSP Format file")
-  buf_set_keymap({ "n", "v" }, "CA", vim.lsp.buf.code_action, "LSP Code actions")
+  buf_set_keymap({ "n", "v" }, "CA", function()
+    vim.lsp.buf.code_action()
+  end, "LSP Code actions")
 
   -- Mapas de Telescope para LSP
   telescope_mapper("gr", "lsp_references", { buffer = bufnr, desc = "LSP References of symbol under cursor" })

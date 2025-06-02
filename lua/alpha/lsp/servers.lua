@@ -75,6 +75,7 @@ return {
         lsp_attach(client, bufnr)
       end,
       flags = lsp_flags,
+      filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
       settings = {
         typescript = {
           inlayHints = inlay_hints,
