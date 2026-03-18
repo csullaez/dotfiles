@@ -70,7 +70,6 @@ return {
       on_attach = function(client, bufnr)
         -- Deshabilitar el formato automático para tsserver
         client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.diagnosticProvider = false -- Desactiva el linting de tsserver
         -- Mantén la función de adjunto personalizada
         lsp_attach(client, bufnr)
       end,
@@ -79,11 +78,20 @@ return {
       settings = {
         typescript = {
           inlayHints = inlay_hints,
+          diagnostics = {
+            semanticValidation = true,
+            syntacticValidation = true,
+          },
         },
         javascript = {
           inlayHints = inlay_hints,
+          diagnostics = {
+            semanticValidation = true,
+            syntacticValidation = true,
+          },
         },
       },
+      root_dir = require("lspconfig.util").root_pattern("package.json", "tsconfig.json", ".git"),
     }
   end
 }

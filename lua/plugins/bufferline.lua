@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  prority = 9999,
+  priority = 9999,
   config = function()
     require('bufferline').setup {
       options = {

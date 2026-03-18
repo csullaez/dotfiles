@@ -63,12 +63,7 @@ return {
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
     vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
     vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
-    vim.keymap.set('n', 'K', function()
-      local winid = require('ufo').peekFoldedLinesUnderCursor()
-      if not winid then
-        vim.lsp.buf.hover()
-      end
-    end)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover)
     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
     vim.keymap.set('n', '<leader>uR', function()
       ufo.setup(opts)

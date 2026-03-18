@@ -38,7 +38,15 @@ map_tele("<C-p>", "project_files", { desc = "Open Project files" })
 map_tele("<leader>bh", "oldfiles", { desc = "Open Old Files" })
 map_tele("<leader>gb", "branches", { desc = "Git Branches selector" })
 map_tele("<leader>pw", "grep_word", { desc = "Grep word under cursor" })
-map_tele("<S-f>", "grep_string", { desc = "Grep provided input string" })
+map_tele("<S-f>", "live_grep",
+  {
+    desc = "Grep provided input string",
+    options = {
+      additional_args = function()
+        return { "--case-sensitive" }
+      end,
+    }
+  })
 map_tele("<leader>rc", "search_config", { desc = "Search Files in .dotfiles directory" })
 map_tele("<leader>rn", "find_nvim_config", { desc = "Search Files in nvim config directory" })
 map_tele("<leader>rp", "find_nvim_plugin", { desc = "Search Neovim plugins" })

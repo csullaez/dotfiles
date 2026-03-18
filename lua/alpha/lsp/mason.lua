@@ -1,8 +1,6 @@
-local mason = require("mason")
-local mason_lspconfig = require("mason-lspconfig")
-local servers = require("alpha.lsp.servers")
-local lspconfig = require("lspconfig")
-
+-- lua/alpha/lsp/mason.lua
+local ok_m, mason = pcall(require, "mason")
+if not ok_m then return end
 mason.setup({
   ui = {
     icons = {
@@ -13,23 +11,19 @@ mason.setup({
   }
 })
 
-local mason_servers = {}
-
--- TODO: can be improve checking the setup function to see if sets the cmd
-for server, _ in pairs(servers) do
-  local cmd = lspconfig[server].document_config.default_config.cmd[1]
-  if vim.fn.executable(cmd) == 0 then
-    table.insert(mason_servers, server)
-  end
+local ok_ml, mlsp = pcall(require, "mason-lspconfig")
+if ok_ml then
+  -- instala los servers que realmente usas
+  mlsp.setup({
+    ensure_installed = { "lua_ls", "ts_ls" },
+    automatic_installation = true,
+    -- nada de handlers aquí
+  })
 end
 
-mason_lspconfig.setup({
-  ensure_installed = mason_servers,
-  automatic_installation = true,
-  automatic_enable = false,
-})
-
--- Configura mason-tool-installer después
-require("mason-tool-installer").setup({
-  ensure_installed = require("alpha.lsp.tools"),
-})
+-- Herramientas adicionales (formatters/linters)
+pcall(function()
+  require("mason-tool-installer").setup({
+    ensure_installed = require("alpha.lsp.tools"),
+  })
+end)

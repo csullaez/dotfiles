@@ -37,11 +37,11 @@ return function(client, bufnr)
   telescope_mapper("gi", "lsp_implementations", { buffer = bufnr, desc = "LSP Go to implementation" })
 
   -- Activar inlay hints si el LSP lo soporta
-  if client.server_capabilities.inlayHintProvider then
+  --[[ if client.server_capabilities.inlayHintProvider then
     vim.api.nvim_buf_call(bufnr, function()
       vim.lsp.inlay_hint.enable(true)
     end)
-  end
+  end ]]
 
   -- Llama a funciones específicas por tipo de archivo
   filetype_attach[filetype](client, bufnr)

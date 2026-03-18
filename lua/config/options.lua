@@ -4,7 +4,7 @@ vim.g.snippets = "luasnip"
 
 local opt = vim.o
 -- Set clipboard option
-opt.clipboard = "unnamed"
+opt.clipboard = "unnamedplus"
 -- Show matching brackets
 opt.ma = true
 -- Set encoding to UTF-8
@@ -34,7 +34,7 @@ opt.cmdheight = 2
 -- Set soft tab width to 2 spaces
 vim.opt.softtabstop = 2
 -- Set update time for CursorHold event to 300ms
-opt.updatetime = 300
+opt.updatetime = 200
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
 -- Keep buffers hidden when abandoned
@@ -84,3 +84,6 @@ end
 vim.o.guifont = "Fira Code:h14"
 -- vim.cmd("set guifont=Fira\\ Code:h14")
 -- vim.cmd("set guifont=Victor\\ Mono:h12")
+
+vim.g.php_recommended_style = 0
+

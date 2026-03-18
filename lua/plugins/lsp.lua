@@ -1,36 +1,15 @@
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    {
-      "nvimtools/none-ls.nvim"
-    },
-    {
-      "williamboman/mason.nvim",
-      opts = {
-        ui = {
-          border = "rounded",
-        },
-      },
-    },
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    {
-      "j-hui/fidget.nvim",
-      branch = "legacy",
-      opts = {
-        window = {
-          blend = 0,
-        },
-        sources = {
-          ["null-ls"] = {
-            ignore = true,
-          },
-        },
-      },
-    },
+    { "nvimtools/none-ls.nvim" },
+    { "nvimtools/none-ls-extras.nvim" },
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
+    { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+    { "hrsh7th/cmp-nvim-lsp" },
   },
-  event = "VeryLazy",
   config = function()
-    require "alpha.lsp"
+    require("alpha.lsp.init") -- <- esto llama a tu init nuevo
   end,
 }
